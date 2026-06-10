@@ -26,7 +26,7 @@ from pathlib import Path
 
 from .attack import CrescendoAttack
 from .config import CrescendoConfig
-from .ollama_client import OllamaClient
+from shared.ollama_client import OllamaClient
 
 
 # ---------------------------------------------------------------------------

@@ -1,7 +1,3 @@
-#Um einen Testdurchlauf zu starten:
-# Im Code-Verzeichnis ausführen: 
-# # python -m indiana_jones.run --behaviors 0-2 --verbose
-
 """
 Indiana Jones (TombRaider) Jailbreak Attack.
 
@@ -34,8 +30,8 @@ import time
 import json
 
 from .config import IndianaJonesConfig
-from .judge import LlamaGuardJudge, is_refusal
-from .ollama_client import OllamaClient
+from shared.judge import LlamaGuardJudge, is_refusal
+from shared.ollama_client import OllamaClient
 
 logger = logging.getLogger(__name__)
 

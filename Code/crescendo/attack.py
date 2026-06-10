@@ -25,9 +25,9 @@ import re
 from typing import Optional
 
 from .config import CrescendoConfig
-from .judge import LlamaGuardJudge, is_refusal
-from .models import AttackResult, TurnResult
-from .ollama_client import OllamaClient
+from shared.judge import LlamaGuardJudge, is_refusal
+from shared.models import AttackResult, TurnResult
+from shared.ollama_client import OllamaClient
 
 logger = logging.getLogger(__name__)
 

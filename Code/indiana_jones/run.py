@@ -26,7 +26,7 @@ from pathlib import Path
 
 from .attack import IndianaJonesAttack
 from .config import IndianaJonesConfig
-from .ollama_client import OllamaClient
+from shared.ollama_client import OllamaClient
 
 
 # ---------------------------------------------------------------------------
