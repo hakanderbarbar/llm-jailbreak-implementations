@@ -5,11 +5,11 @@
   "max_attempts": 5,
   "max_turns": 2,
   "temperature": 0.7,
-  "behaviors": "0-2",
+  "behaviors": "7-9",
   "advbench": null,
   "output_dir": "results/indiana_jones",
   "ollama_url": "http://localhost:11434",
   "seed": 42,
-  "verbose": false,
-  "dry_run": true
+  "verbose": true,
+  "dry_run": false
 }
