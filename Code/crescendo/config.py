@@ -18,6 +18,9 @@ class CrescendoConfig:
     orchestrator_temperature: float = 0.9  # Higher = more creative escalation
     seed: int = 42                         # For reproducibility (where supported)
 
+    # --- Use a blackbox model ---
+    use_black_box: bool = False
+
     # --- Infrastructure ---
     ollama_url: str = "http://localhost:11434"
 

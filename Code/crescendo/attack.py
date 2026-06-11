@@ -28,6 +28,7 @@ from .config import CrescendoConfig
 from shared.judge import LlamaGuardJudge, is_refusal
 from shared.models import AttackResult, TurnResult
 from shared.ollama_client import OllamaClient
+from shared.router import OpenRouterClient
 
 logger = logging.getLogger(__name__)
 
@@ -194,6 +195,8 @@ class CrescendoAttack:
         self.config = config
         self.client = OllamaClient(config.ollama_url)
         self.judge = LlamaGuardJudge(config.judge_model, config.ollama_url)
+        if config.use_black_box:
+            self.target = OpenRouterClient()
 
     # ------------------------------------------------------------------
     # Orchestrator helpers
@@ -294,12 +297,20 @@ class CrescendoAttack:
     # ------------------------------------------------------------------
 
     def _query_target(self, conversation: list) -> str:
-        return self.client.chat(
-            model=self.config.target_model,
-            messages=conversation,
-            temperature=self.config.temperature,
-            seed=self.config.seed,
-        )
+        if self.config.use_black_box:
+            return self.target.chat(
+                model=self.config.target_model,
+                messages=conversation,
+                temperature=self.config.temperature,
+                seed=self.config.seed,
+            )
+        else:
+            return self.client.chat(
+                model=self.config.target_model,
+                messages=conversation,
+                temperature=self.config.temperature,
+                seed=self.config.seed,
+            )
 
     # ------------------------------------------------------------------
     # Main attack loop

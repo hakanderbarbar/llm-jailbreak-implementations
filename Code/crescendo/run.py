@@ -27,6 +27,7 @@ from pathlib import Path
 from .attack import CrescendoAttack
 from .config import CrescendoConfig
 from shared.ollama_client import OllamaClient
+from shared.router import OpenRouterClient
 
 
 # ---------------------------------------------------------------------------
@@ -176,6 +177,7 @@ def parse_args() -> argparse.Namespace:
                         help="Enable DEBUG logging")
     parser.add_argument("--dry-run", action="store_true",
                         help="Print first prompt of each behavior without querying models")
+    parser.add_argument("--black-box", "-b", action="store_true")
     return parser.parse_args()
 
 
@@ -191,12 +193,13 @@ def main() -> None:
         ollama_url=args.ollama_url,
         output_dir=args.output_dir,
         seed=args.seed,
+        use_black_box=args.black_box,
     )
     if args.advbench:
         config.advbench_path = args.advbench
 
     # Create run directory with timestamp
-    run_name = f"{time.strftime('%Y%m%d_%H%M%S')}_{config.target_model.replace(':', '-')}"
+    run_name = f"{time.strftime('%Y%m%d_%H%M%S')}_{config.target_model.replace(':', '-').replace('/', '-')}"
     run_dir = config.output_path() / run_name
     run_dir.mkdir(parents=True, exist_ok=True)
 
@@ -212,7 +215,10 @@ def main() -> None:
     # Validate models are available
     if not args.dry_run:
         client = OllamaClient(config.ollama_url)
-        client.check_models(config.target_model, config.orchestrator_model, config.judge_model)
+        if not config.use_black_box:
+            client.check_models(config.target_model, config.orchestrator_model, config.judge_model)
+        else:
+            client.check_models(config.orchestrator_model, config.judge_model)
 
     # Save run config
     (run_dir / "config.json").write_text(
