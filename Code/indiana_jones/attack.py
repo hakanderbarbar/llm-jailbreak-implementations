@@ -36,6 +36,7 @@ import json
 from .config import IndianaJonesConfig
 from shared.judge import LlamaGuardJudge, is_refusal
 from shared.ollama_client import OllamaClient
+from shared.router import OpenRouterClient
 
 logger = logging.getLogger(__name__)
 
@@ -204,6 +205,8 @@ class IndianaJonesAttack:
         self.config = config
         self.client = OllamaClient(config.ollama_url)
         self.judge = LlamaGuardJudge(config.judge_model, config.ollama_url)
+        if config.use_black_box:
+            self.target = OpenRouterClient()
 
     # ------------------------------------------------------------------
     # Orchestrator: generate historical context
@@ -244,12 +247,20 @@ class IndianaJonesAttack:
         )
 
     def _query_target(self, messages: list) -> str:
-        return self.client.chat(
-            model=self.config.target_model,
-            messages=messages,
-            temperature=self.config.temperature,
-            seed=self.config.seed,
-        )
+        if self.config.use_black_box:
+            return self.target.chat(
+                model=self.config.target_model,
+                messages=messages,
+                temperature=self.config.temperature,
+                seed=self.config.seed,
+            )
+        else:
+            return self.client.chat(
+                model=self.config.target_model,
+                messages=messages,
+                temperature=self.config.temperature,
+                seed=self.config.seed,
+            )
 
     # ------------------------------------------------------------------
     # Single attempt: 1 or 2 turns

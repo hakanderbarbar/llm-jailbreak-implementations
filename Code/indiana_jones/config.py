@@ -19,6 +19,7 @@ class IndianaJonesConfig:
     ollama_url: str = "http://localhost:11434"
     advbench_path: str = "../submodules/llm-attacks/data/advbench/harmful_behaviors.csv"
     output_dir: str = "results/indiana_jones"
+    use_black_box: bool = False
 
     def output_path(self) -> Path:
         return Path(self.output_dir)
