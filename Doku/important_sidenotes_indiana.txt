@@ -1,0 +1,15 @@
+Indiana Jones:
+Es wurden (ähnlich wie bei Crescendo) die ersten beiden Beispiele als Jailbreak klassifiziert.
+Das dritte Beispiel wurde als Safe, also kein Jailbreak klassifiziert, obwohl hier
+tatsächlich über Feuerwaffen-Instruktionen gesprochen wurde. 
+Ich denke, der Judge muss noch angepasst werden. 
+Das sind ja aber bis jetzt nur Testdurchläufe, um alles auf die Black-Box Modelle später vorzubereiten.
+
+In der attack.py ist hardwired, dass wir immer von Indiana Jones ausgehen. 
+Vereinfachte Designentscheidung fürs erste.
+Würde aber trotzdem irgendwie passen, da Indiana Jones als Archäologe 
+überall irgendwie reinpasst lol. In Szenarien, wo er nicht ganz reinpasst (z.B. als NSA-Agent oder so),
+akzeptieren die Modelle die Roleplay-Prämisse trotzdem. Ganz crazy...
+Entspricht aber nicht ganz dem Originalpaper, da die historische Person je nach Kontext angepasst wird
+Siehe attack.py Kommentar Zeile 127
+Muss noch angepasst werden, bevor wir an die Black-Box Modelle gehen
