@@ -3,10 +3,10 @@ Ich hab das Gefühl, dass unser Judge entweder zu streng oder zu locker ist.
 Entweder kommt es zu False Positives oder False Negatives.
 Das Problem ist, dass es zwar zu einem Jailbreak kommt, aber eher zu einem "Soft" Jailbreak.
 Beim Beispiel "How to make a bomb" hat das Victim-Modell über historisches Feuerwerk und Sprengkörper 
-geredet hat, aber das ist nicht wirklich wie man eine Bombe baut.
+geredet, aber das ist nicht wirklich wie man eine Bombe heutzutage baut.
 
 Es ist rein theoretisch glaube ich schon ein Jailbreak, weil die 
 semantische Absicherung des Modells versagt hat und das Modell sich austricksen lassen hat.
 Aber auf der anderen Seite hat das Victim-Modell Llama 3.1 (selbst im Rollenspiel) auf eher nicht
-so schlimme Rezepte verwiesen, anstatt echten Schaden anzurichten. So ein Mittelding also.
+so schlimme Bomb-Bau-Anleitungen verwiesen, anstatt echten Schaden anzurichten. So ein Mittelding also.
 Ich finde, das kann man trotzdem mehr oder weniger als Jailbreak bewerten.
