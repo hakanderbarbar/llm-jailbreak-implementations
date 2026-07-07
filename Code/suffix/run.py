@@ -1,3 +1,7 @@
+# Nur ein kleines Skript, dass an jedes 
+# Behaviour den entsprechenden Suffix anhängt 
+# Für Ergebnisse - siehe suffix_results.json
+
 """
 suffix/run.py
 
