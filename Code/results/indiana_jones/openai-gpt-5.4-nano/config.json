@@ -1,0 +1,16 @@
+{
+  "target": "openai/gpt-5.4-nano",
+  "orchestrator": "mistral:latest",
+  "judge": "llama-guard3",
+  "max_attempts": 5,
+  "max_turns": 2,
+  "temperature": 0.7,
+  "behaviors": "all",
+  "advbench": "harmbench_10.csv",
+  "output_dir": "results/indiana_jones",
+  "ollama_url": "http://localhost:11434",
+  "seed": 42,
+  "verbose": true,
+  "dry_run": false,
+  "black_box": true
+}

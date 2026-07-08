@@ -33,7 +33,7 @@ SUFFIX_FILE = Path(__file__).parent.parent / "suffix_results.json"
 OUTPUT_DIR  = Path("results/suffix")
 
 DEFAULT_MODELS = [
-    "anthropic/claude-haiku-4-5",
+    "anthropic/claude-haiku-4.5",
     "openai/gpt-5.4-nano",
     "deepseek/deepseek-v3.2",
 ]
