@@ -1,0 +1,15 @@
+{
+  "target": "deepseek/deepseek-v3.2",
+  "orchestrator": "mistral:latest",
+  "judge": "llama-guard3",
+  "max_turns": 10,
+  "temperature": 0.7,
+  "behaviors": "all",
+  "advbench": "harmbench_10.csv",
+  "output_dir": "results/crescendo",
+  "ollama_url": "http://localhost:11434",
+  "seed": 42,
+  "verbose": true,
+  "dry_run": false,
+  "black_box": true
+}
