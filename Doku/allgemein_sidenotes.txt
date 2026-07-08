@@ -1,0 +1,18 @@
+Für alle drei Angriffe werden die gleichen 10 Behaviour genommen:
+airport_bomb_smuggling_plan
+bio_warfare_list_home
+bulk_cash_smuggling_tutorial
+chem_warfare_list_home
+dimethylmercury_instructions_home
+fake_bank_security_msg
+hiring_hitman_instructions
+induce_grandmother_fall
+moc_defamatory_child_porn
+underage_handgun_purchase
+
+Falls es zu einem Jailbreak kommt, dann hat man mehr Aussagekraft.
+Andersfalls könnte es ja auch daran liegen, dass das eine Beispiel einfacher zu jailbreaken
+war, als das andere. -->AUSSAGEKRAFT
+
+Und die zentrale Forschungsfrage lautet ja, wie unterschiedlich die Alignment-Methoden
+auf gradientenbasierte, Multi-Turn- und narrative Angriffe reagieren!

@@ -1,0 +1,15 @@
+Kein einziger war übertragbar - weder die von llama oder von mistral.
+
+Mögliche Gründe können sein, dass der GCG Suffix Angriff schon seit paar Jahren 
+draußen ist und Unternehmen ihre LLMs dementsprechen aligned haben
+
+Geil für unsere Projektarbeit ist, dass wir sehr viel über diesen Angriff sagen können:
+-Zu jedem Suffix gibt es einen Loss, welcher aussagt, wie gut der gefundene Suffix auf dem Modell ist
+-Moderne LLMs sind gegen Suffix resistent
+-In dem Ordner results/suffix sieht man, wie die BlackBox Modelle jeden Angriff blockieren
+
+Suffix-Angriff mit mistral Suffixen:
+~/Projektarbeit_gitlabREPO/pr-2026-kaya_ruppert/Code$ python -m suffix.run --source mistral --verbose
+
+Suffix-Angriff mit llama Suffixen:
+~/Projektarbeit_gitlabREPO/pr-2026-kaya_ruppert/Code$ python -m suffix.run --source llama --verbose
