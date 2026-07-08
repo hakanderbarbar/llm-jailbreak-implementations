@@ -1,0 +1,15 @@
+{
+  "target": "anthropic/claude-haiku-4.5",
+  "orchestrator": "mistral:latest",
+  "judge": "llama-guard3",
+  "max_turns": 10,
+  "temperature": 0.7,
+  "behaviors": "0-9",
+  "advbench": null,
+  "output_dir": "results/crescendo",
+  "ollama_url": "http://localhost:11434",
+  "seed": 42,
+  "verbose": true,
+  "dry_run": false,
+  "black_box": true
+}
