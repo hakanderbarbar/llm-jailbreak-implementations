@@ -5,7 +5,7 @@
   "max_attempts": 5,
   "max_turns": 2,
   "temperature": 0.7,
-  "behaviors": "all",
+  "behaviors": "0-9",
   "advbench": "harmbench_10.csv",
   "output_dir": "results/indiana_jones",
   "ollama_url": "http://localhost:11434",
