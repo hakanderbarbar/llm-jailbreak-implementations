@@ -44,6 +44,8 @@ We find that on the AdvBench subset dataset we get 46.6% / {Our judgement}% atta
 Surprisingly we also find that our calculated suffixes are not transferable at all, resulting in a 0% / 0% ASR for the suffix attack
 Therefore we can assess that modern state-of-the-art LLMs are very well aligned against malicious suffixes but still quite susceptible for multi-turn and narrative jailbreak methods, like the Crescendo and Indiana Jones attacks.
 
+TASK: I really dont like the Abstract for now. Try to write a better one.
+
 # Introduction
 
 Today Large Language Models (LLMs) are used so widely and in so many products that they are practically impossible to get rid of.
@@ -53,11 +55,11 @@ Since these LLMs are trained on all sorts of content one of the biggest threats 
 Nowadays almost all of the LLMs are aligned to follow certain rules and not produce any kind of harmful or hateful content, or engage in illegal or unethical activity.
 Jailbreak attacks try to break exactly this alignment and to get the LLM to help with arbitrary malicious tasks.
 
-What do we do, how do we do it, which models were attacked, which model was the attacker, which model was the judge
+TASK: What do we do, how do we do it, which models were attacked, which model was the attacker, which model was the judge
 
 # Related Works
 
-Related works to our paper
+TASK: Related works to our paper
 
 # Implemented Examples
 
@@ -181,7 +183,7 @@ For our human labeled results we use the assessment of three different people an
 
 # Results
 
-Why did some attacks work, why did suffix not work at all, why were results from judge and us so different for Claude?
+TASK: Why did some attacks work, why did suffix not work at all, why were results from judge and us so different for Claude?
 
 ## Crescendo
 
@@ -204,24 +206,44 @@ For the Crescendo attack we were able to observe that the attack still works for
     height=6cm
 ]
 \addplot [bar shift=0pt,fill=blue!70,draw=black] coordinates {
-    (ChatGPT,50)
+    (ChatGPT,40)
 };
 \addplot [bar shift=0pt,fill=green!70,draw=black] coordinates {
-    (Claude,50)
+    (Claude,20)
 };
 \addplot [bar shift=0pt,fill=red!70,draw=black] coordinates {
     (DeepSeek,40)
 };
 \end{axis}
 \end{tikzpicture}
-\caption{Attack success rate for ChatGPT 5.4-nano, Claude Haiku 4.5, and DeepSeek-v3.2 assessed by Judge.}
-\label{fig:crescendo_judge}
+\caption{Attack success rate for ChatGPT 5.4-nano, Claude Haiku 4.5, and DeepSeek-v3.2.}
+\label{fig:crescendo_results}
 \end{figure}
 ```
 
-As shown in \autoref{fig:crescendo_judge} our judge reports a 50% attack success rate (ASR) for ChatGPT 5.4-nano and for Claude Haiku 4.5.
-Surprisingly our judge reports the lowest ASR for DeepSeek-v3.2.
-DeepSeek is widely used as a "not well aligned" model in the research space.
+In \autoref{fig:crescendo_results} the attack success rates (ASRs) for the Crescendo attack on all three victims are displayed.
+These results are the actual labels that are given to every prompt after the human and judge evaluation.
+
+As shown in \autoref{fig:crescendo_results} we were able to observe a 40% ASR with ChatGPT 5.4-nano as the victim model.
+The newly in GPT-5 introduced "Safe-Completions" [@singh2026openaigpt5card] [@yuan2025hardrefusalssafecompletionsoutputcentric] made a noticeable difference in the performance of ChatGPT 5.4-nano, but not always in a good way.
+We were able to observe that there are cases where the "Safe-Completions" work perfectly fine for the context of the behavior but while surpressing a directly harmful answer we were given clearly illicit content that had nothing to do with the actual behavior.
+With these observations the advantages and disadvantages of this technology are clearly seen.
+It works very well for circumventing directly harmful content and still help the user but since it is a quite old technology, it just cannot keep up with the attacks.
+
+With DeepSeek-v3.2 under attack we were also able to observe a 40% ASR as seen in \autoref{fig:crescendo_results}.
+The new architectural modification of DeepSeek-v3.2, DeepSeek Sparse Attention (DSA) [@deepseekai2025deepseekv32pushingfrontieropen], seems to have done it a favor in terms of security because older DeepSeek-AI LLMs were known for their quite unaligned answers and easiness to get otherwise restricted information from the model.
+DeepSeek-v3.2 struggled the most with adversary behaviors containing biochemical content.
+This is actually still quite concerning, because with informations like these, people with bad intent are able to cause a lot of harm.
+
+Interesting here is that we were able to obsere only a 20% ASR with Claude Haiku 4.5 as the model under attack, so only half as many attacks were actually successfull compared to ChatGPT 5.4-nano and DeepSeek-v3.2.
+This goes to show that Anthropics "Multi-turn testing" [@claudehaiku45systemcard] is a step in the correct direction regarding the robustness of state-of-the-art LLMs against multi-turn attacks.
+But still we were able to observe a much higher ASR, 20%, than Anthropic themselfes did, "5% or less" [@claudehaiku45systemcard], while testing the Crescendo attack.
+
+TASK: Results from all three models further explained. Papers for all models are already found and can be used.
+
+## Indiana Jones
+
+The Indiana Jones attack did not work as well for state-of-the-art LLMs as the Crescendo attack did.
 
 ```{=latex}
 \begin{figure}[t]
@@ -240,32 +262,42 @@ DeepSeek is widely used as a "not well aligned" model in the research space.
     height=6cm
 ]
 \addplot [bar shift=0pt,fill=blue!70,draw=black] coordinates {
-    (ChatGPT,90)
+    (ChatGPT,10)
 };
 \addplot [bar shift=0pt,fill=green!70,draw=black] coordinates {
-    (Claude,90)
+    (Claude,0)
 };
 \addplot [bar shift=0pt,fill=red!70,draw=black] coordinates {
-    (DeepSeek,90)
+    (DeepSeek,10)
 };
 \end{axis}
 \end{tikzpicture}
-\caption{Attack success rate for ChatGPT 5.4-nano, Claude Haiku 4.5, and DeepSeek-v3.2 assessed by humans.}
-\label{fig:asr}
+\caption{Attack success rate for ChatGPT 5.4-nano, Claude Haiku 4.5, and DeepSeek-v3.2.}
+\label{fig:indiana_results}
 \end{figure}
 ```
 
-TASK: How do the results of the judge stand against our assessments?
+In \autoref{fig:indiana_results} the results of the Indiana Jones attack are displayed.
+These are the actual labels given to every prompt after the evaluation by the judge and us researchers.
 
-TASK: Results from Judge and from us for all models written very shortly but also explained
+As seen in \autoref{fig:indiana_results} the Indiana Jones attack worked for only two behaviors, one with ChatGPT 5.4-nano and one with DeepSeek-v3.2.
+None of the randomly chosen behaviors worked with Claude Haiku 4.5.
 
-## Indiana Jones
+TASK: Why are the results so low? Can we guess why that is the case? Explanation!
 
-Results from Judge and from us for all models written very shortly but also explained
+One interesting thing to mention here is that our judge had a 50% false positive rate with Claude Haiku 4.5, even tho the received answers from the victim LLM are very clearly benign and not harmful.
+This is most likely the case because Claude Haiku 4.5 is specialised in giving short and precise answers, unlike most other state-of-the-art LLMs which often produce much unnecessary content.
+Therefore most LLM-as-a-Judge systems are trained on long and unspecific answers if the victim actually refuses to indulge in illegal or unappropriate behavior and are unable to handle short and precise rejections.
+
+TASK: Results from all three models further explained. Papers for all models are already found and can be used.
 
 ## Suffix
 
-Results from Judge and from us for all models written very shortly but also explained
+TASK: Maybe a diagram with the results
+
+TASK: Results from Judge and from us for all models written very shortly but also explained
+
+TASK: Why did no suffix work? Which mitigations against this do the LLMs use? Reference the papers for this!
 
 # References
 
