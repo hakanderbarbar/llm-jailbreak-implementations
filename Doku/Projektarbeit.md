@@ -13,12 +13,13 @@ header-includes:
     \usepackage{pgfplots}
     \pgfplotsset{compat=1.18}
     \usepgfplotslibrary{statistics}
+    \usepackage[backend=biber,sortcites=true,minnames=5,maxnames=10,mincitenames=1,maxcitenames=2,bibencoding=utf8,isbn=false,giveninits=true,doi=false,natbib]{biblatex}
     ```
 lang: en-US
 bibliography: ./Doku/bibliography.bib
 link-citations: true
 urlcolor: "blue"
-csl: ./Doku/ieee.csl
+csl: ./Doku/ieee-de-custom.csl
 classoption: 
     - twocolumn
 documentclass: article
