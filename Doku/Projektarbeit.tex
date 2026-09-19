@@ -41,6 +41,38 @@ natbib
 
 \addbibresource{./bibliography.bib}
 
+% Graphics
+\usepackage{tikz}
+\usetikzlibrary{
+	arrows.meta,
+	positioning,
+	shapes.geometric,
+	fit,
+	calc
+}
+
+\tikzset{
+	process/.style={
+		rectangle,
+		rounded corners,
+		draw,
+		align=center,
+		text width=3.6cm,
+		minimum height=1cm
+	},
+	decision/.style={
+		diamond,
+		draw,
+		align=center,
+		aspect=2,
+		text width=2.2cm
+	},
+	arrow/.style={
+		-{Latex},
+		thick
+	}
+}
+
 % Title
 \title{%
 	Comparative Evaluation of the Robustness of State-of-the-Art LLMs
@@ -96,8 +128,7 @@ natbib
 	
 	We implemented 3 different classes of attacks (Crescendo attacks, Indiana Jones attacks, Suffix attacks) for three different LLMs, Claude Haiku 4.5, Chat-GPT 5.4-nano, and DeepSeek-v3.2.
 	For each attack on a LLM we used a subset of ten different behaviors from the AdvBench dataset.
-	
-	TODO: Maybe a table of all used behaviors like in tombraider paper
+	All of the used behaviors are listed and explained in \autoref{tab:behaviors}.
 	
 	\begin{table*}[t]
 		\centering
@@ -128,8 +159,6 @@ natbib
 	
 	This results in 30 evaluated chats per LLM.
 	
-	Which scenarios were tested and where to find them
-	
 	\subsection{Crescendo}
 	
 	The Crescendo attack \cite{russinovich2025greatwritearticlethat} is a multi-turn jailbreak attack that interacts with the model in a seemingly benign manner but gradually escalating the dialogue by referencing the models previous answers \cite{russinovich2025greatwritearticlethat}.
@@ -138,22 +167,107 @@ natbib
 	It is executed through entirely normal interactions with the target model.
 	To fully automate this attack only two things are needed.
 	
-	- Access to the black-box API
-	- Access to an orchestrator that creates our seemingly harmless prompts that need to reference the target models answers
+	\begin{itemize}
+		\item Access to the black-box API
+		
+		\item Access to an orchestrator that creates our seemingly harmless prompts that need to reference the target models answers
+	\end{itemize}
 	
 	With this infrastructure given the Crescendo attack is one of the easiest jailbreak methods for modern LLMs.
 	
 	We implemented the Crescendo attack using three kinds of LLMs:
 	
-	- one target model that is under attack
-	- one orchestrator model that generates our attack prompts
-	- one judge model that checks whether or received answers from the target model are still aligned or already jailbroken
+	\begin{itemize}
+		\item One target model that is under attack
+		
+		\item One orchestrator model that generates our attack prompts
+		
+		\item One judge model that checks whether or received answers from the target model are still aligned or already jailbroken
+	\end{itemize}
 	
 	The target model was always one of the three models that we tested, Claude Haiku 4.5, Chat-GPT 5.4-nano, or DeepSeek-v3.2.
 	As orchestrator we used the latest LLM from Mistral AI using ollama as a way to interact with it.
 	Our judge model was the 8b version of llama-guard3 that was also accessed through ollama.
 	
-	TASK: What was our data flow like?
+	\begin{figure*}[t]
+		\centering
+		
+		\begin{tikzpicture}[node distance=1.3cm and 1.8cm]
+			
+			% Nodes
+			\node[process] (user1)
+			{User provides behavior to test};
+			
+			\node[process, right=of user1] (orchestrator1)
+			{Orchestrator LLM generates initial prompt};
+			
+			\node[process, below=of orchestrator1] (target1)
+			{Target LLM generates response};
+			
+			\node[decision, below=of target1] (inspect1)
+			{Attack successful?};
+			
+			\node[decision, left=of inspect1] (turncheck)
+			{Reached break condition?};
+			
+			\node[process, left=of turncheck] (attacker)
+			{Generate next attack prompt};
+			
+			\node[process, below=of turncheck] (end)
+			{End};
+			
+			% Arrows
+			\draw[arrow] (user1) -- (orchestrator1);
+			\draw[arrow] (orchestrator1) -- (target1);
+			\draw[arrow] (target1) -- (inspect1);
+			
+			\draw[arrow] (inspect1.west) -- node[above]{no} (turncheck);
+			\draw[arrow] (inspect1.south) |- node[below]{yes} (end);
+			\draw[arrow] (turncheck.west) -- node[above]{no} (attacker);
+			\draw[arrow] (turncheck.south) -- node[right]{yes} (end);
+			\draw[arrow] (attacker) |- (target1);
+			
+		\end{tikzpicture}
+		
+		\caption{Overview of the data flow of the Crescendo attack.}
+		\label{fig:data_flow_crescendo}
+	\end{figure*}
+	
+	Every answer that the victim LLM gave was checked for three different things:
+	
+	\begin{itemize}
+		\item Was a jailbreak successful?
+		\item Did the victim LLM drift in its response?
+		\item Did the victim LLM refuse a direct response?
+	\end{itemize}
+	
+	We checked for drift in the responses, because if one of the responses of the victim LLM contains drift it is possible that the entire conversation will drift in this direction because the drift is now part of the context of the conversation.
+	This is not wanted since we want to test our ten behaviors directly.
+	By detecting drift we are able to redact this turn from the conversation and the victim LLM will continue like it never happened.
+	
+	We also found it imperative to check for direct refusals and not only for a successful jailbreak in responses from the victim LLM, because of two reasons:
+	
+	\begin{enumerate}
+		\item We can keep track of consecutive refusals and break after a certain amount of consecutive refusals.
+		
+		\item We are able to steer the conversation into a different direction and may be able to get responses from the victim LLM that do not contain a refusal but maybe a jailbreak.
+	\end{enumerate}
+	
+	As seen in \autoref{fig:data_flow_crescendo} we used certain "break conditions".
+	We defined two conditions to be able to end an ongoing behavior:
+	
+	\begin{itemize}
+		\item Was the maximum number of consecutive refusals reached?
+		
+		\item Was the maximum number of rounds without a jailbreak for a single behavior reached?
+	\end{itemize}
+	
+	We defined the maximum number of consecutive refusals to be 3 and the maximum number of rounds without a jailbreak for a single behavior to be 10.
+	These numbers were determined after a bit of testing and found to be the best fitting.
+	
+	With these "break conditions" we were able to end a tested behavior early.
+	
+	TASK: Maybe list all of the system prompts used for Crescendo somewhere? -> Ask Prof. Kleber!
 	
 	\subsection{Indiana Jones}
 	
@@ -162,8 +276,11 @@ natbib
 	In addition to that a checker (judge) is implemented as well.
 	Here the judge has two tasks: 
 	
-	1. In the beginning of the attack the judge has to assess which direction is most suitable for a jailbreak for the user-provided keyword and instructs the target model to generate relevant historical or contextual information. 
-	2. Later the judge evaluates every output from the target model and checks whether it is appropriate and passed to the orchestrating model to deepen the attack or if the output is already a jailbreak.
+	\begin{enumerate}
+		\item In the beginning of the attack the judge has to assess which direction is most suitable for a jailbreak for the user-provided keyword and instructs the target model to generate relevant historical or contextual information.
+		
+		\item Later the judge evaluates every output from the target model and checks whether it is appropriate and passed to the orchestrating model to deepen the attack or if the output is already a jailbreak.
+	\end{enumerate}
 	
 	The later iteration of the Indiana Jones attack, the TombRaider attack, implements one LLM more that acts as a so called \textit{Inspector} \cite{ding2025tombraiderenteringvaulthistory}.
 	In the beginning the Inspector receives the user-provided keyword and generates an initial prompt that is grounded in historical or cultural facts.
@@ -185,6 +302,48 @@ natbib
 	We were able to observe that the attack did not increase its effectiveness with a higher number of rounds per keyword.
 	
 	TASK: What was our data flow like?
+	
+	\begin{figure*} [t]
+		\centering
+		
+		\begin{tikzpicture}[node distance=1.3cm and 1.8cm]
+			
+			% Nodes
+			\node[process] (user)
+			{User provides behavior to test};
+			
+			\node[process, below=of user] (keyword)
+			{Orchestrator LLM generates one benign keyword associated with behavior};
+			
+			\node[process, right=of keyword] (attempt)
+			{Run an attempt with the keyword};
+			
+			\node[decision, below=of attempt] (inspect)
+			{Attack successful?};
+			
+			\node[decision, left=of inspect] (break)
+			{Reached maximum attempts?};
+			
+			\node[process, left=of break] (mark)
+			{Mark the keyword as tested};
+			
+			\node[process, below=of break] (end)
+			{End};
+			
+			% Arrows
+			\draw[arrow] (user) -- (keyword);
+			\draw[arrow] (keyword) -- (attempt);
+			\draw[arrow] (attempt) -- (inspect);
+			\draw [arrow] (inspect.south) |- node[below]{yes} (end);
+			\draw [arrow] (inspect.west) -- node[above]{no} (break);
+			\draw [arrow] (break.south) -- node[right]{yes} (end);
+			\draw [arrow] (break.west) -- node[above]{no} (mark);
+			\draw [arrow] (mark) |- (keyword);
+		\end{tikzpicture}
+		
+		\caption{Overview of the data flow of the Indiana Jones attack.}
+		\label{fig:data_flow_indiana}
+	\end{figure*}
 	
 	\subsection{Suffix}
 	
@@ -210,8 +369,11 @@ natbib
 	
 	For our white-box LLMs we have chosen two different models:
 	
-	- Llama-3.1 Instruct 8B
-	- Mistral Instruct 7B
+	\begin{itemize}
+		\item Llama-3.1 Instruct 8B
+		
+		\item Mistral Instruct 7B
+	\end{itemize}
 	
 	With the calculated suffix from two different white-box models we are better able to generalize the effectiveness of the attack against state-of-the-art LLMs.
 	
@@ -221,9 +383,11 @@ natbib
 	Now as to why we chose such "small" white-box LLMs.
 	There are two reasons for this:
 	
-	1. We are very limited in our GPU and compute ressources.
-	2. To be able to have good chances of having a transferable suffix it can be important that the suffix is calculated on a model of comparable size.
-	And because our three target LLMs are around 20B-70B we have reached the maximum size of white-box models for which we are able to calculate the suffix in a reasonable amount of time.
+	\begin{enumerate}
+		\item We are very limited in our GPU and compute ressources.
+		
+		\item To be able to have good chances of having a transferable suffix it can be important that the suffix is calculated on a model of comparable size. And because our three target LLMs are around 20B-70B we have reached the maximum size of white-box models for which we are able to calculate the suffix in a reasonable amount of time.
+	\end{enumerate}
 	
 	We again use the same subset of the AdvBench dataset that we used for the Crescendo and the Indiana Jones attack which consists of ten different behaviors.
 	For the actual calculation of the suffix we chose to calculate the suffix for one behavior at a time even though it is possible to calculate universal Multi-prompt suffixes \cite{zou2023universaltransferableadversarialattacks}.

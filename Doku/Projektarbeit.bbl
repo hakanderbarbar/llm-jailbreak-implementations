@@ -4096,6 +4096,36 @@
       \verb https://arxiv.org/abs/2512.02556
       \endverb
     \endentry
+    \entry{promptfoo2025deepseekv32}{report}{}
+      \name{author}{1}{}{%
+        {{hash=6e8df9cc56c98960e81b27d608533ef4}{%
+           family={{Promptfoo}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Promptfoo}%
+      }
+      \strng{namehash}{6e8df9cc56c98960e81b27d608533ef4}
+      \strng{fullhash}{6e8df9cc56c98960e81b27d608533ef4}
+      \strng{bibnamehash}{6e8df9cc56c98960e81b27d608533ef4}
+      \strng{authorbibnamehash}{6e8df9cc56c98960e81b27d608533ef4}
+      \strng{authornamehash}{6e8df9cc56c98960e81b27d608533ef4}
+      \strng{authorfullhash}{6e8df9cc56c98960e81b27d608533ef4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{9}
+      \field{title}{DeepSeek V3.2-Exp Security Report}
+      \field{type}{Technical Report}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://promptfoo.dev/models/reports/deepseek-v3-2-exp
+      \endverb
+      \verb{url}
+      \verb https://promptfoo.dev/models/reports/deepseek-v3-2-exp
+      \endverb
+    \endentry
     \entry{claudehaiku45systemcard}{report}{}
       \name{author}{1}{}{%
         {{hash=f431db65cea024a5f19eab835afefee2}{%
@@ -4137,8 +4167,8 @@
       \strng{authorbibnamehash}{0523b13262b12c215d8009938f5c14f1}
       \strng{authornamehash}{0523b13262b12c215d8009938f5c14f1}
       \strng{authorfullhash}{0523b13262b12c215d8009938f5c14f1}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{4}
@@ -4151,36 +4181,6 @@
       \endverb
       \verb{url}
       \verb https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf
-      \endverb
-    \endentry
-    \entry{promptfoo2025deepseekv32}{report}{}
-      \name{author}{1}{}{%
-        {{hash=6e8df9cc56c98960e81b27d608533ef4}{%
-           family={{Promptfoo}},
-           familyi={P\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {Promptfoo}%
-      }
-      \strng{namehash}{6e8df9cc56c98960e81b27d608533ef4}
-      \strng{fullhash}{6e8df9cc56c98960e81b27d608533ef4}
-      \strng{bibnamehash}{6e8df9cc56c98960e81b27d608533ef4}
-      \strng{authorbibnamehash}{6e8df9cc56c98960e81b27d608533ef4}
-      \strng{authornamehash}{6e8df9cc56c98960e81b27d608533ef4}
-      \strng{authorfullhash}{6e8df9cc56c98960e81b27d608533ef4}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{month}{9}
-      \field{title}{DeepSeek V3.2-Exp Security Report}
-      \field{type}{Technical Report}
-      \field{year}{2025}
-      \verb{urlraw}
-      \verb https://promptfoo.dev/models/reports/deepseek-v3-2-exp
-      \endverb
-      \verb{url}
-      \verb https://promptfoo.dev/models/reports/deepseek-v3-2-exp
       \endverb
     \endentry
   \enddatalist
