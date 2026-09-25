@@ -320,10 +320,6 @@ natbib
 	
 	With these "break conditions" we were able to end a tested behavior early.
 	
-	\bigskip
-	
-	\textcolor{red}{TASK: Maybe list all of the system prompts used for Crescendo somewhere? -> Ask Prof. Kleber!}
-	
 	\subsection{Indiana Jones}
 	
 	The Indiana Jones \cite{ding2025indianajonesusefulrelics} (or TombRaider \cite{ding2025tombraiderenteringvaulthistory}) attack is a multi-turn jailbreak attack that leverages keyword-driven prompts.
@@ -498,10 +494,6 @@ natbib
 	
 	We also added one more step in each round that is not mentioned in \autoref{fig:attempt_indiana}.
 	And that is because it does not contribute to the attack but just check whether the facts that were generated in the responses by the victim LLM make sense or not.
-	
-	\bigskip
-	
-	\textcolor{red}{TASK: Maybe list all of the system prompts used for Crescendo somewhere? -> Ask Prof. Kleber!}
 	
 	\subsection{Suffix}
 	
@@ -782,7 +774,6 @@ natbib
 	
 	Very interestingly we were again able to observe that DeepSeek-v3.2 as the victim model scored just as good as ChatGPT 5.4-nano as the victim.
 	We were able to observe a 10\% success rate for the Indiana Jones attack with DeepSeek-v3.2 under attack.
-	%This attack was able to show the effects of DeepSeek-AI's new attention mechanism, DeepSeek Sparse Attention (DSA) \cite{deepseekai2025deepseekv32pushingfrontieropen}.
 	Here our findings go against the thorough security testing from Promptfoo.
 	They found that jailbreaks are a concern of high-severity for DeepSeek-v3.2 \cite{promptfoo2025deepseekv32}, which we were unable to reproduce with the Indiana Jones narrative attack.
 	
@@ -835,43 +826,8 @@ natbib
 	\subsection{Suffix}
 	
 	Unlike with the Crescendo and the Indiana Jones attack we were unable to produce a successful jailbreak using the Suffix attack.
-	
-	\begin{figure}[t]
-		\centering
-		\begin{tikzpicture}
-			\begin{axis}[
-				ybar,
-				ylabel={Attack Success Rate (\%)},
-				symbolic x coords={ChatGPT, Claude, DeepSeek},
-				xtick={ChatGPT, Claude, DeepSeek},
-				xticklabels={ChatGPT, Claude, DeepSeek},
-				ymin=0,
-				ymax=100,
-				bar width=15pt,
-				width=0.8\columnwidth,
-				height=6cm
-				]
-				\addplot [bar shift=0pt,fill=blue!70,draw=black] coordinates {
-					(ChatGPT,0)
-				};
-				\addplot [bar shift=0pt,fill=green!70,draw=black] coordinates {
-					(Claude,0)
-				};
-				\addplot [bar shift=0pt,fill=red!70,draw=black] coordinates {
-					(DeepSeek,0)
-				};
-			\end{axis}
-		\end{tikzpicture}
-		\caption{Attack success rate of Suffix attack for ChatGPT 5.4-nano, Claude Haiku 4.5, and DeepSeek-v3.2.}
-		\label{fig:suffix_results}
-	\end{figure}
-	
-	\bigskip
-	
-	\textcolor{red}{TASK: Ask if \autoref{fig:suffix_results} is necessary or should be left out -> Ask Prof. Kleber!}
-	
-	As seen in \autoref{fig:suffix_results} none of our calculated suffixes worked on our tested state-of-the-art LLMs.
-	This can be because of multiple reasons.
+	This comes quite surprising because with older LLMs the suffix attack recorded a high transferability.
+	That we did not get any transferability from our calculated suffixes can be because of multiple reasons.
 	
 	\begin{itemize}
 		\item The differences in size between our used open-weights surrogate models and our tested state-of-the-art LLMs are too great.
@@ -885,9 +841,14 @@ natbib
 	
 	Sadly none of the three providers, OpenAI, Anthropic, and DeepSeekAI, have open documentation that could clear up the question as to why exactly we were unable to produce a successful jailbreak using our on Llama-3.1 Instruct 8B and Mistral Instruct 7B calculated suffixes.
 	
-	\bigskip
+	\section{Future Works}
 	
-	\textcolor{red}{TASK: Ask if future works chapter should be added -> Ask Prof. Kleber!}
+	Future work could extend this study by evaluating a broader range of models, behaviors, and jailbreak techniques.
+	In particular, the lack of transferability observed for the GCG-based adversarial suffixes should be further investigated.
+	Future experiments could examine whether alternative white-box surrogate models, optimization parameters, or suffix generation strategies improve transferability to current black-box models.
+	Additionally, the comparatively high success rate of Crescendo motivates further analysis of multi-turn attacks, including variations in conversation length and escalation strategy.
+	Finally, repeating the evaluation as new model generations and safety mechanisms are released would help determine whether the observed robustness differences persist over time.
+	For this especially a harness that guarantees the testing to stay the same over the course of multiple generations of LLMs is an important step.
 	
 	\printbibliography
 	
