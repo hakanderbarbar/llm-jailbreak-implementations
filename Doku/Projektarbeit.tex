@@ -105,33 +105,76 @@ natbib
 	
 	\section*{Abstract}
 	
-	Large Language Models (LLMs) can be found everywhere today.
-	Even tho these LLMs are heavily aligned to not produce any harmful content in any kind of way multiple attack classes have surfaced that try to achieve a breaking of those guardrails under which the LLMs operate.
-	These attacks, known as "\textit{jailbreaks}", have been tested on many LLMs before, but the technology has evolved very fast in the space of Artificial Intelligence (AI).
-	Therefore it is imparative to continuously test new LLM technologies and models.
-	In this paper we test multiple state-of-the-art LLMs with mutliple known attacks.
-	The models that are under attack are ChatGPT 5.4-nano, Claude Haiku 4.5, and DeepSeek-v3.2 and all of the are attacked using the Crescendo attack, the Indiana Jones attack, and a Suffix attack.
-	
-	We find that on the AdvBench subset dataset we get 46.6\% / {Our judgement}\% attack success rates (ASR) for the Crescendo attack, and 23.3\% / {Our judgement}\% ASR for the Indiana Jones attack.
-	Surprisingly we also find that our calculated suffixes are not transferable at all, resulting in a 0\% / 0\% ASR for the suffix attack
-	Therefore we can assess that modern state-of-the-art LLMs are very well aligned against malicious suffixes but still quite susceptible for multi-turn and narrative jailbreak methods, like the Crescendo and Indiana Jones attacks.
-	
-	TASK: I really dont like the Abstract for now. Try to write a better one.
+	Large Language Models (LLMs) employ alignment and safety mechanisms to prevent the generation of harmful content, yet these mechanisms can be circumvented through jailbreak attacks.
+	As LLMs and their safeguards continue to evolve, previously proposed attacks require re-evaluation against current models.
+	In this work, we evaluate ChatGPT 5.4-nano, Claude Haiku 4.5, and DeepSeek-v3.2 against three jailbreak methods: Crescendo, Indiana Jones, and a GCG-based adversarial suffix attack.
+	Using a subset of AdvBench, Crescendo achieves an overall attack success rate (ASR) of 33.3\%, while Indiana Jones achieves 6.6\%.
+	The generated adversarial suffixes do not transfer successfully to any of the tested models, resulting in an ASR of 0\%.
+	These results indicate that multi-turn jailbreaks remain effective against current LLMs, whereas the adversarial suffixes generated in our experimental setting show no transferability.
 	
 	\section{Introduction}
 	
-	Today Large Language Models (LLMs) are used so widely and in so many products that they are practically impossible to get rid of.
-	With all of their advancements their weaknesses are continuously studied and checked.
-	Many research studies have been examining the security and privacy risks that come with the use of a LLM.
-	Since these LLMs are trained on all sorts of content one of the biggest threats is the concept of a "\textit{jailbreaks}".
-	Nowadays almost all of the LLMs are aligned to follow certain rules and not produce any kind of harmful or hateful content, or engage in illegal or unethical activity.
-	Jailbreak attacks try to break exactly this alignment and to get the LLM to help with arbitrary malicious tasks.
+	Large Language Models (LLMs) have become widely used for applications such as conversational assistance, code generation, information retrieval, and decision support.
+	As their capabilities and accessibility have increased, so have concerns regarding their potential to generate harmful or otherwise undesirable content.
+	Modern LLMs therefore typically undergo post-training and alignment procedures intended to constrain their behavior.
+	Reinforcement Learning from Human Feedback (RLHF), for example, uses human preference data to optimize model responses beyond the conventional language-modeling objective \cite{ouyang2022training}.
+	Other approaches, such as Constitutional AI, use explicit principles and AI-generated feedback to encourage helpful and harmless behavior \cite{bai2022constitutional}.
 	
-	TASK: What do we do, how do we do it, which models were attacked, which model was the attacker, which model was the judge
+	Despite these alignment efforts, LLMs remain susceptible to jailbreak attacks, which attempt to circumvent safety mechanisms through deliberately constructed inputs or interactions.
+	Previous research has demonstrated a broad range of such attacks, ranging from optimized adversarial token sequences to prompt-based and conversational techniques.
+	Importantly, these methods exploit fundamentally different aspects of an LLM and its safety mechanisms.
+	
+	One prominent approach is the use of gradient-based adversarial suffixes.
+	Zou et al. introduced Greedy Coordinate Gradient (GCG), which searches for adversarial token sequences that can be appended to harmful instructions to increase the probability of eliciting a non-refusal response \cite{zou2023universaltransferableadversarialattacks}.
+	Other attacks instead exploit conversational context.
+	Crescendo progressively guides a model toward a prohibited objective over multiple turns, beginning with comparatively benign requests and building upon the model's previous responses \cite{russinovich2025greatwritearticlethat}.
+	The Indiana Jones attack, introduced within the TombRaider framework, follows another strategy by embedding harmful objectives within historical and narrative contexts \cite{ding2025tombraiderenteringvaulthistory}.
+	These approaches therefore represent three distinct attack classes: gradient-based, multi-turn, and narrative jailbreaks.
+	
+	Although previous work demonstrates the effectiveness of these techniques, two challenges motivate their re-evaluation.
+	First, LLMs and their safety mechanisms evolve rapidly, meaning results obtained against earlier model generations may not accurately characterize current systems.
+	Second, studies commonly evaluate individual attack techniques, making direct comparisons between fundamentally different jailbreak mechanisms difficult.
+	These limitations motivate evaluating several attack classes under a common experimental framework.
+	
+	This work addresses this gap by evaluating Suffix, Crescendo, and Indiana Jones against three state-of-the-art LLMs: ChatGPT 5.4-nano, Claude Haiku 4.5, and DeepSeek-v3.2.
+	The attacks are implemented and evaluated within a unified framework, enabling comparison across all models and attack mechanisms.
+	The study therefore investigates the following research question:
+	
+	\begin{quote}
+		To what extent do state-of-the-art LLMs with different alignment and safety mechanisms exhibit differential robustness against gradient-based, multi-turn, and narrative jailbreak attacks?
+	\end{quote}
+	
+	The study does not attempt to attribute differences exclusively to individual alignment algorithms, since the evaluated systems also differ in architecture, training, and provider-side safeguards.
+	Instead, it examines their resulting robustness against qualitatively different jailbreak strategies and assesses whether previously established attacks remain effective against modern state-of-the-art LLMs.
 	
 	\section{Related Works}
 	
-	TASK: Related works to our paper
+	Research on LLM jailbreaks investigates whether the behavioral restrictions introduced through alignment and safety mechanisms remain effective when models encounter deliberately adversarial inputs.
+	Existing approaches range from token-level optimization to semantic prompt manipulation and multi-turn interaction.
+	
+	A prominent optimization-based approach was introduced by Zou et al. in \textit{Universal and Transferable Adversarial Attacks on Aligned Language Models} \cite{zou2023universaltransferableadversarialattacks}.
+	Their method uses Greedy Coordinate Gradient (GCG) to automatically search for adversarial suffixes that can be appended to harmful instructions.
+	Rather than manually constructing a jailbreak, gradient information guides the selection of tokens that increase the likelihood of an affirmative response.
+	An important finding is the transferability of these suffixes: attacks optimized against accessible white-box models can also affect other models, including black-box systems.
+	This makes adversarial suffix attacks particularly relevant for evaluating systems for which direct gradient access is unavailable.
+	
+	Jailbreaking can also be achieved without access to model parameters.
+	Prompt-based attacks instead manipulate the semantic or representational context in which instructions are presented.
+	Prior work has demonstrated several variants of this approach.
+	\textbf{PromptAttack}, for example, uses LLMs themselves to generate adversarial inputs \cite{xu2024promptattack}, while \textbf{ArtPrompt} exploits alternative representations using ASCII art \cite{jiang2024artprompt}.
+	These results illustrate that model safeguards can be sensitive not only to the requested content but also to how that content is represented.
+	
+	The \textbf{Indiana Jones attack}, introduced as part of the TombRaider framework by Ding et al., represents a narrative-oriented variation of this principle \cite{ding2025tombraiderenteringvaulthistory}.
+	It uses historical and narrative contexts to frame otherwise restricted requests.
+	Unlike GCG, which operates through token-level optimization, this approach targets the model's interpretation of semantic context and narrative intent.
+	
+	Another attack surface emerges from the conversational nature of modern LLMs.
+	\textbf{Crescendo}, proposed by Russinovich et al., is a multi-turn jailbreak in which the interaction progresses incrementally from benign discussion toward a prohibited objective \cite{russinovich2025greatwritearticlethat}.
+	By building upon information established during previous turns, the attack demonstrates that safety evaluations based solely on isolated prompts may overlook vulnerabilities arising from accumulated conversational context.
+	
+	Finally, meaningful comparison between jailbreak techniques requires consistent evaluation criteria.
+	\textbf{HarmBench}, introduced by Mazeika et al., provides a standardized framework for automated red teaming and the evaluation of harmful model behavior \cite{mazeika2024harmbench}.
+	The present work builds upon this approach by using Attack Success Rate (ASR) derived from classification of generated responses rather than relying solely on refusal keywords, consistent with the evaluation strategy established in the project proposal.
 	
 	\section{Implemented Examples}
 	
@@ -279,7 +322,7 @@ natbib
 	
 	\bigskip
 	
-	TASK: Maybe list all of the system prompts used for Crescendo somewhere? -> Ask Prof. Kleber!
+	\textcolor{red}{TASK: Maybe list all of the system prompts used for Crescendo somewhere? -> Ask Prof. Kleber!}
 	
 	\subsection{Indiana Jones}
 	
@@ -458,7 +501,7 @@ natbib
 	
 	\bigskip
 	
-	TASK: Maybe list all of the system prompts used for Crescendo somewhere? -> Ask Prof. Kleber!
+	\textcolor{red}{TASK: Maybe list all of the system prompts used for Crescendo somewhere? -> Ask Prof. Kleber!}
 	
 	\subsection{Suffix}
 	
@@ -630,9 +673,7 @@ natbib
 	This goes to show that Anthropics "Multi-turn testing" \cite{claudehaiku45systemcard} is a step in the correct direction regarding the robustness of state-of-the-art LLMs against multi-turn attacks.
 	But still we were able to observe a much higher ASR, 20\%, than Anthropic themselves did, "5\% or less" \cite{claudehaiku45systemcard}, while testing the Crescendo attack.
 	
-	TASK: Make a table for the average length of the victim responses
-	
-	TASK: Write a short paragraph about the wrong positive rate of the judge and the average response length
+	\bigskip
 	
 	Apart from the results regarding the three different tested state-of-the-art LLMs we were able to observe a correlation between the length of the response and the wrong-positive rate of our LLM judge Llama Guard 3.
 	Seemingly with a shorter length comes a higher wrong-positive rate.
