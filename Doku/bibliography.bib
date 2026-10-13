@@ -1,11 +1,25 @@
-@misc{ding2025tombraiderenteringvaulthistory,
-      title={TombRaider: Entering the Vault of History to Jailbreak Large Language Models}, 
-      author={Junchen Ding and Jiahao Zhang and Yi Liu and Ziqi Ding and Gelei Deng and Yuekang Li},
-      year={2025},
-      eprint={2501.18628},
-      archivePrefix={arXiv},
-      primaryClass={cs.CR},
-      url={https://arxiv.org/abs/2501.18628}, 
+@inproceedings{ding2025tombraiderenteringvaulthistory,
+	title = "{T}omb{R}aider: Entering the Vault of History to Jailbreak Large Language Models",
+	author = "Ding, Junchen  and
+	Zhang, Jiahao  and
+	Liu, Yi  and
+	Ding, Ziqi  and
+	Deng, Gelei  and
+	Li, Yuekang",
+	editor = "Christodoulopoulos, Christos  and
+	Chakraborty, Tanmoy  and
+	Rose, Carolyn  and
+	Peng, Violet",
+	booktitle = "Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing",
+	month = nov,
+	year = "2025",
+	address = "Suzhou, China",
+	publisher = "Association for Computational Linguistics",
+	url = "https://aclanthology.org/2025.emnlp-main.279/",
+	doi = "10.18653/v1/2025.emnlp-main.279",
+	pages = "5478--5493",
+	ISBN = "979-8-89176-332-6",
+	abstract = "**Warning: This paper contains content that may involve potentially harmful behaviours, discussed strictly for research purposes.**Jailbreak attacks can hinder the safety of Large Language Model (LLM) applications, especially chatbots. Studying jailbreak techniques is an important AI red teaming task for improving the safety of these applications. In this paper, we introduce TombRaider, a novel jailbreak technique that exploits the ability to store, retrieve, and use historical knowledge of LLMs. TombRaider employs two agents, the inspector agent to extract relevant historical information and the attacker agent to generate adversarial prompts, enabling effective bypassing of safety filters. We intensively evaluated TombRaider on six popular models. Experimental results showed that TombRaider could outperform state-of-the-art jailbreak techniques, achieving nearly 100{\%} attack success rates (ASRs) on bare models and maintaining over 55.4{\%} ASR against defence mechanisms. Our findings highlight critical vulnerabilities in existing LLM safeguards, underscoring the need for more robust safety defences."
 }
 
 @misc{zou2023universaltransferableadversarialattacks,
@@ -15,17 +29,21 @@
       eprint={2307.15043},
       archivePrefix={arXiv},
       primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2307.15043}, 
 }
 
-@misc{russinovich2025greatwritearticlethat,
-      title={Great, Now Write an Article About That: The Crescendo Multi-Turn LLM Jailbreak Attack}, 
-      author={Mark Russinovich and Ahmed Salem and Ronen Eldan},
-      year={2025},
-      eprint={2404.01833},
-      archivePrefix={arXiv},
-      primaryClass={cs.CR},
-      url={https://arxiv.org/abs/2404.01833}, 
+@inproceedings{russinovich2025greatwritearticlethat,
+      author = {Russinovich, Mark and Salem, Ahmed and Eldan, Ronen},
+      title = {Great, now write an article about that: the crescendo multi-turn LLM jailbreak attack},
+      year = {2025},
+      isbn = {978-1-939133-52-6},
+      publisher = {USENIX Association},
+      address = {USA},
+      abstract = {Large Language Models (LLMs) have risen significantly in popularity and are increasingly being adopted across multiple applications. These LLMs are heavily aligned to resist engaging in illegal or unethical topics as a means to avoid contributing to responsible AI harms. However, a recent line of attacks, known as "jailbreaks", seek to overcome this alignment. Intuitively, jailbreak attacks aim to narrow the gap between what the model can do and what it is willing to do. In this paper, we introduce a novel jailbreak attack called Crescendo. Unlike existing jailbreak methods, Crescendo is a simple multi-turn jailbreak that interacts with the model in a seemingly benign manner. It begins with a general prompt or question about the task at hand and then gradually escalates the dialogue by referencing the model's replies progressively leading to a successful jailbreak. We evaluate Crescendo on various public systems, including ChatGPT, Gemini Pro, Gemini-Ultra, LlaMA-2 70b and LlaMA-3 70b Chat, and Anthropic Chat. Our results demonstrate the strong efficacy of Crescendo, with it achieving high attack success rates across all evaluated models and tasks. Furthermore, we present Crescendomation1, a tool that automates the Crescendo attack and demonstrate its efficacy against state-of-the-art models through our evaluations. Crescendomation surpasses other state-of-the-art jailbreaking techniques on the AdvBench subset dataset, achieving 29-61\% higher performance on GPT-4 and 49-71\% on Gemini-Pro. Finally, we also demonstrate Crescendo's ability to jailbreak multimodal models.},
+      booktitle = {Proceedings of the 34th USENIX Conference on Security Symposium},
+      articleno = {125},
+      numpages = {20},
+      location = {Seattle, WA, USA},
+      series = {SEC '25}
 }
 
 @misc{ding2025indianajonesusefulrelics,
@@ -35,7 +53,6 @@
       eprint={2501.18628v1},
       archivePrefix={arXiv},
       primaryClass={cs.CR},
-      url={https://arxiv.org/abs/2501.18628v1}, 
 }
 
 @techreport{claudehaiku45systemcard,
@@ -52,7 +69,6 @@
       eprint={2512.02556},
       archivePrefix={arXiv},
       primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2512.02556}, 
 }
 
 @misc{singh2026openaigpt5card,
@@ -62,7 +78,6 @@
       eprint={2601.03267},
       archivePrefix={arXiv},
       primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2601.03267}, 
 }
 
 @misc{yuan2025hardrefusalssafecompletionsoutputcentric,
@@ -72,7 +87,6 @@
       eprint={2508.09224},
       archivePrefix={arXiv},
       primaryClass={cs.CY},
-      url={https://arxiv.org/abs/2508.09224}, 
 }
 
 @techreport{openai2025preparedness,
@@ -96,52 +110,118 @@
 	  url={https://promptfoo.dev/models/reports/deepseek-v3-2-exp}
 }
 
-@misc{ouyang2022training,
-	title={Training language models to follow instructions with human feedback}, 
-	author={Long Ouyang and Jeff Wu and Xu Jiang and Diogo Almeida and Carroll L. Wainwright and Pamela Mishkin and Chong Zhang and Sandhini Agarwal and Katarina Slama and Alex Ray and John Schulman and Jacob Hilton and Fraser Kelton and Luke Miller and Maddie Simens and Amanda Askell and Peter Welinder and Paul Christiano and Jan Leike and Ryan Lowe},
-	year={2022},
-	eprint={2203.02155},
-	archivePrefix={arXiv},
-	primaryClass={cs.CL},
-	url={https://arxiv.org/abs/2203.02155},
+@inproceedings{ouyang2022training,
+	author = {Ouyang, Long and Wu, Jeff and Jiang, Xu and Almeida, Diogo and Wainwright, Carroll L. and Mishkin, Pamela and Zhang, Chong and Agarwal, Sandhini and Slama, Katarina and Ray, Alex and Schulman, John and Hilton, Jacob and Kelton, Fraser and Miller, Luke and Simens, Maddie and Askell, Amanda and Welinder, Peter and Christiano, Paul and Leike, Jan and Lowe, Ryan},
+	title = {Training language models to follow instructions with human feedback},
+	year = {2022},
+	isbn = {9781713871088},
+	publisher = {Curran Associates Inc.},
+	address = {Red Hook, NY, USA},
+	abstract = {Making language models bigger does not inherently make them better at following a user's intent. For example, large language models can generate outputs that are untruthful, toxic, or simply not helpful to the user. In other words, these models are not aligned with their users. In this paper, we show an avenue for aligning language models with user intent on a wide range of tasks by fine-tuning with human feedback. Starting with a set of labeler-written prompts and prompts submitted through a language model API, we collect a dataset of labeler demonstrations of the desired model behavior, which we use to fine-tune GPT-3 using supervised learning. We then collect a dataset of rankings of model outputs, which we use to further fine-tune this supervised model using reinforcement learning from human feedback. We call the resulting models InstructGPT. In human evaluations on our prompt distribution, outputs from the 1.3B parameter InstructGPT model are preferred to outputs from the 175B GPT-3, despite having 100x fewer parameters. Moreover, InstructGPT models show improvements in truthfulness and reductions in toxic output generation while having minimal performance regressions on public NLP datasets. Even though InstructGPT still makes simple mistakes, our results show that fine-tuning with human feedback is a promising direction for aligning language models with human intent.},
+	booktitle = {Proceedings of the 36th International Conference on Neural Information Processing Systems},
+	articleno = {2011},
+	numpages = {15},
+	location = {New Orleans, LA, USA},
+	series = {NIPS '22}
 }
 
-@misc{bai2022constitutional,
-	title={Constitutional AI: Harmlessness from AI Feedback}, 
-	author={Yuntao Bai and Saurav Kadavath and Sandipan Kundu and Amanda Askell and Jackson Kernion and Andy Jones and Anna Chen and Anna Goldie and Azalia Mirhoseini and Cameron McKinnon and Carol Chen and Catherine Olsson and Christopher Olah and Danny Hernandez and Dawn Drain and Deep Ganguli and Dustin Li and Eli Tran-Johnson and Ethan Perez and Jamie Kerr and Jared Mueller and Jeffrey Ladish and Joshua Landau and Kamal Ndousse and Kamile Lukosuite and Liane Lovitt and Michael Sellitto and Nelson Elhage and Nicholas Schiefer and Noemi Mercado and Nova DasSarma and Robert Lasenby and Robin Larson and Sam Ringer and Scott Johnston and Shauna Kravec and Sheer El Showk and Stanislav Fort and Tamera Lanham and Timothy Telleen-Lawton and Tom Conerly and Tom Henighan and Tristan Hume and Samuel R. Bowman and Zac Hatfield-Dodds and Ben Mann and Dario Amodei and Nicholas Joseph and Sam McCandlish and Tom Brown and Jared Kaplan},
+@article{bai2022constitutional,
+	title={Constitutional AI: Harmlessness from AI Feedback},
+	author={Yuntao Bai and Saurav Kadavath and Sandipan Kundu and Amanda Askell and John Kernion and Andy Jones and Anna Chen and Anna Goldie and Azalia Mirhoseini and Cameron McKinnon and Carol Chen and Catherine Olsson and Chris Olah and Danny Hernandez and Dawn Drain and Deep Ganguli and Dustin Li and Eli Tran-Johnson and E Perez and Jamie Kerr and Jared Mueller and Jeffrey Ladish and J Landau and Kamal Ndousse and Kamilė Luko{\vs}iūtė and Liane Lovitt and Michael Sellitto and Nelson Elhage and Nicholas Schiefer and Noem'i Mercado and Nova Dassarma and Robert Lasenby and Robin Larson and Sam Ringer and Scott Johnston and Shauna Kravec and Sheer El Showk and Stanislav Fort and Tamera Lanham and Timothy Telleen-Lawton and Tom Conerly and Thomas Henighan and Tristan Hume and Sam Bowman and Zac Hatfield-Dodds and Benjamin Mann and Dario Amodei and Nicholas Joseph and Sam McCandlish and Tom B. Brown and Jared Kaplan},
+	journal={ArXiv},
 	year={2022},
-	eprint={2212.08073},
-	archivePrefix={arXiv},
-	primaryClass={cs.CL},
-	url={https://arxiv.org/abs/2212.08073}, 
+	volume={abs/2212.08073},
+	url={https://api.semanticscholar.org/CorpusID:254823489}
 }
 
-@misc{xu2024promptattack,
-	title={An LLM can Fool Itself: A Prompt-Based Adversarial Attack}, 
+@inproceedings{xu2024promptattack,
+	title={An {LLM} can Fool Itself: A Prompt-Based Adversarial Attack},
 	author={Xilie Xu and Keyi Kong and Ning Liu and Lizhen Cui and Di Wang and Jingfeng Zhang and Mohan Kankanhalli},
-	year={2023},
-	eprint={2310.13345},
-	archivePrefix={arXiv},
-	primaryClass={cs.CR},
-	url={https://arxiv.org/abs/2310.13345}, 
+	booktitle={The Twelfth International Conference on Learning Representations},
+	year={2024},
+	url={https://openreview.net/forum?id=VVgGbB9TNV}
 }
 
-@misc{mazeika2024harmbench,
-	title={HarmBench: A Standardized Evaluation Framework for Automated Red Teaming and Robust Refusal}, 
-	author={Mantas Mazeika and Long Phan and Xuwang Yin and Andy Zou and Zifan Wang and Norman Mu and Elham Sakhaee and Nathaniel Li and Steven Basart and Bo Li and David Forsyth and Dan Hendrycks},
-	year={2024},
-	eprint={2402.04249},
-	archivePrefix={arXiv},
-	primaryClass={cs.LG},
-	url={https://arxiv.org/abs/2402.04249},
+@inproceedings{mazeika2024harmbench,
+	author = {Mazeika, Mantas and Phan, Long and Yin, Xuwang and Zou, Andy and Wang, Zifan and Mu, Norman and Sakhaee, Elham and Li, Nathaniel and Basart, Steven and Li, Bo and Forsyth, David and Hendrycks, Dan},
+	title = {HarmBench: a standardized evaluation framework for automated red teaming and robust refusal},
+	year = {2024},
+	publisher = {JMLR.org},
+	abstract = {Automated red teaming holds substantial promise for uncovering and mitigating the risks associated with the malicious use of large language models (LLMs), yet the field lacks a standardized evaluation framework to rigorously assess new methods. To address this issue, we introduce HarmBench, a standardized evaluation framework for automated red teaming. We identify several desirable properties previously unaccounted for in red teaming evaluations and systematically design HarmBench to meet these criteria. Using HarmBench, we conduct a large-scale comparison of 18 red teaming methods and 33 target LLMs and defenses, yielding novel insights. We also introduce a highly efficient adversarial training method that greatly enhances LLM robustness across a wide range of attacks, demonstrating how HarmBench enables codevelopment of attacks and defenses. We open source HarmBench at https://github.com/centerforaisafety/HarmBench.},
+	booktitle = {Proceedings of the 41st International Conference on Machine Learning},
+	articleno = {1431},
+	numpages = {44},
+	location = {Vienna, Austria},
+	series = {ICML'24}
 }
 
-@misc{jiang2024artprompt,
-	title={ArtPrompt: ASCII Art-based Jailbreak Attacks against Aligned LLMs}, 
-	author={Fengqing Jiang and Zhangchen Xu and Luyao Niu and Zhen Xiang and Bhaskar Ramasubramanian and Bo Li and Radha Poovendran},
-	year={2024},
-	eprint={2402.11753},
-	archivePrefix={arXiv},
-	primaryClass={cs.CL},
-	url={https://arxiv.org/abs/2402.11753}, 
+@inproceedings{jiang2024artprompt,
+	title = "{A}rt{P}rompt: {ASCII} Art-based Jailbreak Attacks against Aligned {LLM}s",
+	author = "Jiang, Fengqing  and
+	Xu, Zhangchen  and
+	Niu, Luyao  and
+	Xiang, Zhen  and
+	Ramasubramanian, Bhaskar  and
+	Li, Bo  and
+	Poovendran, Radha",
+	editor = "Ku, Lun-Wei  and
+	Martins, Andre  and
+	Srikumar, Vivek",
+	booktitle = "Proceedings of the 62nd Annual Meeting of the {A}ssociation for {C}omputational {L}inguistics (Volume 1: Long Papers)",
+	month = aug,
+	year = "2024",
+	address = "Bangkok, Thailand",
+	publisher = "Association for Computational Linguistics",
+	url = "https://aclanthology.org/2024.acl-long.809/",
+	doi = "10.18653/v1/2024.acl-long.809",
+	pages = "15157--15173",
+	abstract = "Safety is critical to the usage of large language models (LLMs). Multiple techniques such as data filtering and supervised fine-tuning have been developed to strengthen LLM safety. However, currently known techniques presume that corpora used for safety alignment of LLMs are solely interpreted by semantics. This assumption, however, does not hold in real-world applications, which leads to severe vulnerabilities in LLMs. For example, users of forums often use ASCII art, a form of text-based art, to convey image information. In this paper, we propose a novel ASCII art-based jailbreak attack and introduce a comprehensive benchmark Vision-in-Text Challenge (ViTC) to evaluate the capabilities of LLMs in recognizing prompts that cannot be solely interpreted by semantics. We show that five SOTA LLMs (GPT-3.5, GPT-4, Gemini, Claude, and Llama2) struggle to recognize prompts provided in the form of ASCII art. Based on this observation, we develop the jailbreak attack ArtPrompt, which leverages the poor performance of LLMs in recognizing ASCII art to bypass safety measures and elicit undesired behaviors from LLMs. ArtPrompt only requires black-box access to the victim LLMs, making it a practical attack. We evaluate ArtPrompt on five SOTA LLMs, and show that ArtPrompt can effectively and efficiently induce undesired behaviors from all five LLMs."
+}
+
+@inproceedings{chu-etal-2025-jailbreakradar,
+	title = "{J}ailbreak{R}adar: Comprehensive Assessment of Jailbreak Attacks Against {LLM}s",
+	author = "Chu, Junjie  and
+	Liu, Yugeng  and
+	Yang, Ziqing  and
+	Shen, Xinyue  and
+	Backes, Michael  and
+	Zhang, Yang",
+	editor = "Che, Wanxiang  and
+	Nabende, Joyce  and
+	Shutova, Ekaterina  and
+	Pilehvar, Mohammad Taher",
+	booktitle = "Proceedings of the 63rd Annual Meeting of the {A}ssociation for {C}omputational {L}inguistics (Volume 1: Long Papers)",
+	month = jul,
+	year = "2025",
+	address = "Vienna, Austria",
+	publisher = "Association for Computational Linguistics",
+	url = "https://aclanthology.org/2025.acl-long.1045/",
+	doi = "10.18653/v1/2025.acl-long.1045",
+	pages = "21538--21566",
+	ISBN = "979-8-89176-251-0",
+	abstract = "Jailbreak attacks aim to bypass the LLMs' safeguards. While researchers have proposed different jailbreak attacks in depth, they have done so in isolation{---}either with unaligned settings or comparing a limited range of methods. To fill this gap, we present a large-scale evaluation of various jailbreak attacks. We collect 17 representative jailbreak attacks, summarize their features, and establish a novel jailbreak attack taxonomy. Then we conduct comprehensive measurement and ablation studies across nine aligned LLMs on 160 forbidden questions from 16 violation categories. Also, we test jailbreak attacks under eight advanced defenses. Based on our taxonomy and experiments, we identify some important patterns, such as heuristic-based attacks, which could achieve high attack success rates but are easy to mitigate by defenses. Our study offers valuable insights for future research on jailbreak attacks and defenses and serves as a benchmark tool for researchers and practitioners to evaluate them effectively."
+}
+
+@inproceedings{xu2024bagtricksbenchmarkingjailbreak,
+	author = {LIU, Fan and LIU, Hao and XU, Zhao},
+	year = {2024},
+	month = {01},
+	pages = {32219-32250},
+	title = {Bag of Tricks: Benchmarking of Jailbreak Attacks on LLMs},
+	doi = {10.52202/079017-1012}
+}
+
+@inproceedings{chao2024jailbreakbench,
+	author = {Chao, Patrick and Debenedetti, Edoardo and Robey, Alexander and Andriushchenko, Maksym and Croce, Francesco and Sehwag, Vikash and Dobriban, Edgar and Flammarion, Nicolas and Pappas, George J. and Tram{\`e}r, Florian and Hassani, Hamed and Wong, Eric},
+	title = {JailbreakBench: an open robustness benchmark for jailbreaking large language models},
+	year = {2024},
+	isbn = {9798331314385},
+	publisher = {Curran Associates Inc.},
+	address = {Red Hook, NY, USA},
+	abstract = {Jailbreak attacks cause large language models (LLMs) to generate harmful, unethical, or otherwise objectionable content. Evaluating these attacks presents a number of challenges, which the current collection of benchmarks and evaluation techniques do not adequately address. First, there is no clear standard of practice regarding jailbreaking evaluation. Second, existing works compute costs and success rates in incomparable ways. And third, numerous works are not reproducible, as they withhold adversarial prompts, involve closed-source code, or rely on evolving proprietary APIs. To address these challenges, we introduce JailbreakBench, an open-sourced benchmark with the following components: (1) an evolving repository of state-of-the-art adversarial prompts, which we refer to as jailbreak artifacts; (2) a jailbreaking dataset comprising 100 behaviors— both original and sourced from prior work (Zou et al., 2023; Mazeika et al., 2023, 2024)—which align with OpenAI's usage policies; (3) a standardized evaluation framework at https://github.com/JailbreakBench/jailbreakbench that includes a clearly defined threat model, system prompts, chat templates, and scoring functions; and (4) a leaderboard at https://jailbreakbench.github.io/ that tracks the performance of attacks and defenses for various LLMs. We have carefully considered the potential ethical implications of releasing this benchmark, and believe that it will be a net positive for the community.},
+	booktitle = {Proceedings of the 38th International Conference on Neural Information Processing Systems},
+	articleno = {1745},
+	numpages = {25},
+	location = {Vancouver, BC, Canada},
+	series = {NIPS '24}
 }

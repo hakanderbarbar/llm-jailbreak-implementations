@@ -19,7 +19,7 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global}
-    \entry{ouyang2022training}{misc}{}
+    \entry{ouyang2022training}{inproceedings}{}
       \name{author}{20}{}{%
         {{hash=6e3708cf33f22d79419d7e79124060a8}{%
            family={Ouyang},
@@ -122,6 +122,12 @@
            given={Ryan},
            giveni={R\bibinitperiod}}}%
       }
+      \list{location}{1}{%
+        {New Orleans, LA, USA}%
+      }
+      \list{publisher}{1}{%
+        {Curran Associates Inc.}%
+      }
       \strng{namehash}{13d52a5bcb04f48fa855da0c9fb052de}
       \strng{fullhash}{40e1e6e796363b42a70a459ed32121d9}
       \strng{bibnamehash}{933ddaee83063c717797021511f5b907}
@@ -132,21 +138,14 @@
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{eprintclass}{cs.CL}
-      \field{eprinttype}{arXiv}
+      \field{abstract}{Making language models bigger does not inherently make them better at following a user's intent. For example, large language models can generate outputs that are untruthful, toxic, or simply not helpful to the user. In other words, these models are not aligned with their users. In this paper, we show an avenue for aligning language models with user intent on a wide range of tasks by fine-tuning with human feedback. Starting with a set of labeler-written prompts and prompts submitted through a language model API, we collect a dataset of labeler demonstrations of the desired model behavior, which we use to fine-tune GPT-3 using supervised learning. We then collect a dataset of rankings of model outputs, which we use to further fine-tune this supervised model using reinforcement learning from human feedback. We call the resulting models InstructGPT. In human evaluations on our prompt distribution, outputs from the 1.3B parameter InstructGPT model are preferred to outputs from the 175B GPT-3, despite having 100x fewer parameters. Moreover, InstructGPT models show improvements in truthfulness and reductions in toxic output generation while having minimal performance regressions on public NLP datasets. Even though InstructGPT still makes simple mistakes, our results show that fine-tuning with human feedback is a promising direction for aligning language models with human intent.}
+      \field{booktitle}{Proceedings of the 36th International Conference on Neural Information Processing Systems}
+      \field{isbn}{9781713871088}
+      \field{series}{NIPS '22}
       \field{title}{Training language models to follow instructions with human feedback}
       \field{year}{2022}
-      \verb{eprint}
-      \verb 2203.02155
-      \endverb
-      \verb{urlraw}
-      \verb https://arxiv.org/abs/2203.02155
-      \endverb
-      \verb{url}
-      \verb https://arxiv.org/abs/2203.02155
-      \endverb
     \endentry
-    \entry{bai2022constitutional}{misc}{}
+    \entry{bai2022constitutional}{article}{}
       \name{author}{51}{}{%
         {{hash=9bf1729ae263e793ab902ed7fe6678da}{%
            family={Bai},
@@ -168,10 +167,10 @@
            familyi={A\bibinitperiod},
            given={Amanda},
            giveni={A\bibinitperiod}}}%
-        {{hash=c9c0e77cb49ab32e0fbcd8d4b0ea104e}{%
+        {{hash=080e2a948fc0615422e046f6b6aa17eb}{%
            family={Kernion},
            familyi={K\bibinitperiod},
-           given={Jackson},
+           given={John},
            giveni={J\bibinitperiod}}}%
         {{hash=5028535158c772bff71c0631f7cce8f4}{%
            family={Jones},
@@ -208,10 +207,10 @@
            familyi={O\bibinitperiod},
            given={Catherine},
            giveni={C\bibinitperiod}}}%
-        {{hash=dea937fb216bfbba25c1bfa1f36a63fe}{%
+        {{hash=78be47e08348476a254b1217fd9041ca}{%
            family={Olah},
            familyi={O\bibinitperiod},
-           given={Christopher},
+           given={Chris},
            giveni={C\bibinitperiod}}}%
         {{hash=b787768e1abb6680dfb8360e81fc0b28}{%
            family={Hernandez},
@@ -238,10 +237,10 @@
            familyi={T\bibinithyphendelim J\bibinitperiod},
            given={Eli},
            giveni={E\bibinitperiod}}}%
-        {{hash=79978685fd7b37606022b06c0f6419a1}{%
+        {{hash=c23fa809648e68f7596758e32da75bc4}{%
            family={Perez},
            familyi={P\bibinitperiod},
-           given={Ethan},
+           given={E},
            giveni={E\bibinitperiod}}}%
         {{hash=0ca71007d0272f41cc98dee5154251c5}{%
            family={Kerr},
@@ -258,20 +257,20 @@
            familyi={L\bibinitperiod},
            given={Jeffrey},
            giveni={J\bibinitperiod}}}%
-        {{hash=05475502d4ab11662d4d78f84c3fec32}{%
+        {{hash=d1c9748cd5f4055db6046f400099659d}{%
            family={Landau},
            familyi={L\bibinitperiod},
-           given={Joshua},
+           given={J},
            giveni={J\bibinitperiod}}}%
         {{hash=5a51e2df8c9693c1274b429fada63fd6}{%
            family={Ndousse},
            familyi={N\bibinitperiod},
            given={Kamal},
            giveni={K\bibinitperiod}}}%
-        {{hash=e3d7ea7af0978875c77bcc0408a03c76}{%
-           family={Lukosuite},
+        {{hash=2ad9305ef3653700f1a0e1f628dcfefe}{%
+           family={Luko{\vs}iūtė},
            familyi={L\bibinitperiod},
-           given={Kamile},
+           given={Kamilė},
            giveni={K\bibinitperiod}}}%
         {{hash=53e52c19d9cddefdd8622fdabf0e3b86}{%
            family={Lovitt},
@@ -293,13 +292,13 @@
            familyi={S\bibinitperiod},
            given={Nicholas},
            giveni={N\bibinitperiod}}}%
-        {{hash=8a9233fcf39bf20059a2fa8086644948}{%
+        {{hash=6c5f7e067d36e42f94029108a4daa269}{%
            family={Mercado},
            familyi={M\bibinitperiod},
-           given={Noemi},
+           given={Noem'i},
            giveni={N\bibinitperiod}}}%
-        {{hash=0ce3f71595cd1b7dc6a8c02e16adeb45}{%
-           family={DasSarma},
+        {{hash=7d48237d34cdee0dfa602c45c8946be6}{%
+           family={Dassarma},
            familyi={D\bibinitperiod},
            given={Nova},
            giveni={N\bibinitperiod}}}%
@@ -353,30 +352,30 @@
            familyi={C\bibinitperiod},
            given={Tom},
            giveni={T\bibinitperiod}}}%
-        {{hash=eb1d3044b466619459c76843f0e98bb9}{%
+        {{hash=9f24f39e2bf7fcb959fa430b03b32ed5}{%
            family={Henighan},
            familyi={H\bibinitperiod},
-           given={Tom},
+           given={Thomas},
            giveni={T\bibinitperiod}}}%
         {{hash=e2328e4d29e6d57481f844919121200c}{%
            family={Hume},
            familyi={H\bibinitperiod},
            given={Tristan},
            giveni={T\bibinitperiod}}}%
-        {{hash=fc3587de57b6b9868eab5cb9c8efc3fb}{%
+        {{hash=bb602b670eeb288097012b8f2f10466b}{%
            family={Bowman},
            familyi={B\bibinitperiod},
-           given={Samuel\bibnamedelima R.},
-           giveni={S\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+           given={Sam},
+           giveni={S\bibinitperiod}}}%
         {{hash=b453e963913f0d9b4b7015dcdda7fab6}{%
            family={Hatfield-Dodds},
            familyi={H\bibinithyphendelim D\bibinitperiod},
            given={Zac},
            giveni={Z\bibinitperiod}}}%
-        {{hash=f6ea6671c0bcb1a7ebc45e1e803922bd}{%
+        {{hash=d4543c3bcd6aaf414da4296b349603e5}{%
            family={Mann},
            familyi={M\bibinitperiod},
-           given={Ben},
+           given={Benjamin},
            giveni={B\bibinitperiod}}}%
         {{hash=1e6adbf36ab730cd5fdadb838b4d2667}{%
            family={Amodei},
@@ -393,11 +392,11 @@
            familyi={M\bibinitperiod},
            given={Sam},
            giveni={S\bibinitperiod}}}%
-        {{hash=ad9f5a3d8c696d78ce2a831ce8ac7524}{%
+        {{hash=7c16e8d36475e58d4f2d161e6ecb7704}{%
            family={Brown},
            familyi={B\bibinitperiod},
-           given={Tom},
-           giveni={T\bibinitperiod}}}%
+           given={Tom\bibnamedelima B.},
+           giveni={T\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
         {{hash=9e85370e215d552f72c95a2b63a37802}{%
            family={Kaplan},
            familyi={K\bibinitperiod},
@@ -405,27 +404,24 @@
            giveni={J\bibinitperiod}}}%
       }
       \strng{namehash}{68a232b71f6c92d764e1477740607b54}
-      \strng{fullhash}{bd4132da5774c6b6924f3811136323b5}
-      \strng{bibnamehash}{ca97178f5d8fb1105ed66f743f2e1c34}
-      \strng{authorbibnamehash}{ca97178f5d8fb1105ed66f743f2e1c34}
+      \strng{fullhash}{17512229d53f7bcdcb92be97a0672e62}
+      \strng{bibnamehash}{f202cb37f968544b5c8821eac9160605}
+      \strng{authorbibnamehash}{f202cb37f968544b5c8821eac9160605}
       \strng{authornamehash}{68a232b71f6c92d764e1477740607b54}
-      \strng{authorfullhash}{bd4132da5774c6b6924f3811136323b5}
+      \strng{authorfullhash}{17512229d53f7bcdcb92be97a0672e62}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{eprintclass}{cs.CL}
-      \field{eprinttype}{arXiv}
+      \field{journaltitle}{ArXiv}
       \field{title}{Constitutional AI: Harmlessness from AI Feedback}
+      \field{volume}{abs/2212.08073}
       \field{year}{2022}
-      \verb{eprint}
-      \verb 2212.08073
-      \endverb
       \verb{urlraw}
-      \verb https://arxiv.org/abs/2212.08073
+      \verb https://api.semanticscholar.org/CorpusID:254823489
       \endverb
       \verb{url}
-      \verb https://arxiv.org/abs/2212.08073
+      \verb https://api.semanticscholar.org/CorpusID:254823489
       \endverb
     \endentry
     \entry{zou2023universaltransferableadversarialattacks}{misc}{}
@@ -478,14 +474,8 @@
       \verb{eprint}
       \verb 2307.15043
       \endverb
-      \verb{urlraw}
-      \verb https://arxiv.org/abs/2307.15043
-      \endverb
-      \verb{url}
-      \verb https://arxiv.org/abs/2307.15043
-      \endverb
     \endentry
-    \entry{russinovich2025greatwritearticlethat}{misc}{}
+    \entry{russinovich2025greatwritearticlethat}{inproceedings}{}
       \name{author}{3}{}{%
         {{hash=919fb8726d3288990df583cebfbfadf6}{%
            family={Russinovich},
@@ -503,6 +493,12 @@
            given={Ronen},
            giveni={R\bibinitperiod}}}%
       }
+      \list{location}{1}{%
+        {Seattle, WA, USA}%
+      }
+      \list{publisher}{1}{%
+        {USENIX Association}%
+      }
       \strng{namehash}{11fca4f7cb3331fbc205077a4974bd48}
       \strng{fullhash}{82307c889b8b1de677474498ecf0faa0}
       \strng{bibnamehash}{82307c889b8b1de677474498ecf0faa0}
@@ -513,21 +509,14 @@
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{eprintclass}{cs.CR}
-      \field{eprinttype}{arXiv}
-      \field{title}{Great, Now Write an Article About That: The Crescendo Multi-Turn LLM Jailbreak Attack}
+      \field{abstract}{Large Language Models (LLMs) have risen significantly in popularity and are increasingly being adopted across multiple applications. These LLMs are heavily aligned to resist engaging in illegal or unethical topics as a means to avoid contributing to responsible AI harms. However, a recent line of attacks, known as "jailbreaks", seek to overcome this alignment. Intuitively, jailbreak attacks aim to narrow the gap between what the model can do and what it is willing to do. In this paper, we introduce a novel jailbreak attack called Crescendo. Unlike existing jailbreak methods, Crescendo is a simple multi-turn jailbreak that interacts with the model in a seemingly benign manner. It begins with a general prompt or question about the task at hand and then gradually escalates the dialogue by referencing the model's replies progressively leading to a successful jailbreak. We evaluate Crescendo on various public systems, including ChatGPT, Gemini Pro, Gemini-Ultra, LlaMA-2 70b and LlaMA-3 70b Chat, and Anthropic Chat. Our results demonstrate the strong efficacy of Crescendo, with it achieving high attack success rates across all evaluated models and tasks. Furthermore, we present Crescendomation1, a tool that automates the Crescendo attack and demonstrate its efficacy against state-of-the-art models through our evaluations. Crescendomation surpasses other state-of-the-art jailbreaking techniques on the AdvBench subset dataset, achieving 29-61\% higher performance on GPT-4 and 49-71\% on Gemini-Pro. Finally, we also demonstrate Crescendo's ability to jailbreak multimodal models.}
+      \field{booktitle}{Proceedings of the 34th USENIX Conference on Security Symposium}
+      \field{isbn}{978-1-939133-52-6}
+      \field{series}{SEC '25}
+      \field{title}{Great, now write an article about that: the crescendo multi-turn LLM jailbreak attack}
       \field{year}{2025}
-      \verb{eprint}
-      \verb 2404.01833
-      \endverb
-      \verb{urlraw}
-      \verb https://arxiv.org/abs/2404.01833
-      \endverb
-      \verb{url}
-      \verb https://arxiv.org/abs/2404.01833
-      \endverb
     \endentry
-    \entry{ding2025tombraiderenteringvaulthistory}{misc}{}
+    \entry{ding2025tombraiderenteringvaulthistory}{inproceedings}{}
       \name{author}{6}{}{%
         {{hash=4fc0546512631c6783a9f0cf329f3180}{%
            family={Ding},
@@ -560,32 +549,67 @@
            given={Yuekang},
            giveni={Y\bibinitperiod}}}%
       }
+      \name{editor}{4}{}{%
+        {{hash=a870e7c2218dedf8fa395067da42b08f}{%
+           family={Christodoulopoulos},
+           familyi={C\bibinitperiod},
+           given={Christos},
+           giveni={C\bibinitperiod}}}%
+        {{hash=12ef4925945d218592da34e0e46c4eb4}{%
+           family={Chakraborty},
+           familyi={C\bibinitperiod},
+           given={Tanmoy},
+           giveni={T\bibinitperiod}}}%
+        {{hash=90630365a12b98e0c6e6ae9e11f9927b}{%
+           family={Rose},
+           familyi={R\bibinitperiod},
+           given={Carolyn},
+           giveni={C\bibinitperiod}}}%
+        {{hash=ffb2927628843580b437b649623420ac}{%
+           family={Peng},
+           familyi={P\bibinitperiod},
+           given={Violet},
+           giveni={V\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Suzhou, China}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computational Linguistics}%
+      }
       \strng{namehash}{1d5df509f1c42651c9aae1066494455f}
       \strng{fullhash}{6bd433e23007b987103be3f4dbe273ac}
       \strng{bibnamehash}{6bd433e23007b987103be3f4dbe273ac}
       \strng{authorbibnamehash}{6bd433e23007b987103be3f4dbe273ac}
       \strng{authornamehash}{1d5df509f1c42651c9aae1066494455f}
       \strng{authorfullhash}{6bd433e23007b987103be3f4dbe273ac}
+      \strng{editorbibnamehash}{272fa3789a8dc88d7f1dbc00f047ce47}
+      \strng{editornamehash}{7161839d6d65e78b31a4135336c8ebdb}
+      \strng{editorfullhash}{272fa3789a8dc88d7f1dbc00f047ce47}
       \field{extraname}{1}
       \field{sortinit}{5}
       \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{eprintclass}{cs.CR}
-      \field{eprinttype}{arXiv}
-      \field{title}{TombRaider: Entering the Vault of History to Jailbreak Large Language Models}
+      \field{abstract}{**Warning: This paper contains content that may involve potentially harmful behaviours, discussed strictly for research purposes.**Jailbreak attacks can hinder the safety of Large Language Model (LLM) applications, especially chatbots. Studying jailbreak techniques is an important AI red teaming task for improving the safety of these applications. In this paper, we introduce TombRaider, a novel jailbreak technique that exploits the ability to store, retrieve, and use historical knowledge of LLMs. TombRaider employs two agents, the inspector agent to extract relevant historical information and the attacker agent to generate adversarial prompts, enabling effective bypassing of safety filters. We intensively evaluated TombRaider on six popular models. Experimental results showed that TombRaider could outperform state-of-the-art jailbreak techniques, achieving nearly 100{\%} attack success rates (ASRs) on bare models and maintaining over 55.4{\%} ASR against defence mechanisms. Our findings highlight critical vulnerabilities in existing LLM safeguards, underscoring the need for more robust safety defences.}
+      \field{booktitle}{Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing}
+      \field{isbn}{979-8-89176-332-6}
+      \field{month}{11}
+      \field{title}{{T}omb{R}aider: Entering the Vault of History to Jailbreak Large Language Models}
       \field{year}{2025}
-      \verb{eprint}
-      \verb 2501.18628
+      \field{pages}{5478\bibrangedash 5493}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.18653/v1/2025.emnlp-main.279
       \endverb
       \verb{urlraw}
-      \verb https://arxiv.org/abs/2501.18628
+      \verb https://aclanthology.org/2025.emnlp-main.279/
       \endverb
       \verb{url}
-      \verb https://arxiv.org/abs/2501.18628
+      \verb https://aclanthology.org/2025.emnlp-main.279/
       \endverb
     \endentry
-    \entry{xu2024promptattack}{misc}{}
+    \entry{xu2024promptattack}{inproceedings}{}
       \name{author}{7}{}{%
         {{hash=0f2315908fd21496dbb0ec3e22edeb3d}{%
            family={Xu},
@@ -633,21 +657,17 @@
       \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{eprintclass}{cs.CR}
-      \field{eprinttype}{arXiv}
-      \field{title}{An LLM can Fool Itself: A Prompt-Based Adversarial Attack}
-      \field{year}{2023}
-      \verb{eprint}
-      \verb 2310.13345
-      \endverb
+      \field{booktitle}{The Twelfth International Conference on Learning Representations}
+      \field{title}{An {LLM} can Fool Itself: A Prompt-Based Adversarial Attack}
+      \field{year}{2024}
       \verb{urlraw}
-      \verb https://arxiv.org/abs/2310.13345
+      \verb https://openreview.net/forum?id=VVgGbB9TNV
       \endverb
       \verb{url}
-      \verb https://arxiv.org/abs/2310.13345
+      \verb https://openreview.net/forum?id=VVgGbB9TNV
       \endverb
     \endentry
-    \entry{jiang2024artprompt}{misc}{}
+    \entry{jiang2024artprompt}{inproceedings}{}
       \name{author}{7}{}{%
         {{hash=67da2fe978df2ebe1df0f1b98ea7d87d}{%
            family={Jiang},
@@ -685,31 +705,275 @@
            given={Radha},
            giveni={R\bibinitperiod}}}%
       }
+      \name{editor}{3}{}{%
+        {{hash=1bcfba9c9362ce7af988775a8d5e1b80}{%
+           family={Ku},
+           familyi={K\bibinitperiod},
+           given={Lun-Wei},
+           giveni={L\bibinithyphendelim W\bibinitperiod}}}%
+        {{hash=5545e7248fbadb25de1f672f6cd846dc}{%
+           family={Martins},
+           familyi={M\bibinitperiod},
+           given={Andre},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d353c169cbdb6171b51ab4026427e690}{%
+           family={Srikumar},
+           familyi={S\bibinitperiod},
+           given={Vivek},
+           giveni={V\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Bangkok, Thailand}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computational Linguistics}%
+      }
       \strng{namehash}{bb8db1cc4bf8d2ed0697beb5da6b7db3}
       \strng{fullhash}{fa2072abdd493706ca5f634ac281f9b8}
       \strng{bibnamehash}{fa2072abdd493706ca5f634ac281f9b8}
       \strng{authorbibnamehash}{fa2072abdd493706ca5f634ac281f9b8}
       \strng{authornamehash}{bb8db1cc4bf8d2ed0697beb5da6b7db3}
       \strng{authorfullhash}{fa2072abdd493706ca5f634ac281f9b8}
+      \strng{editorbibnamehash}{62d396a0f210c1554518cd993b9e4997}
+      \strng{editornamehash}{e1cbbc399e9d9768959fa5736193faae}
+      \strng{editorfullhash}{62d396a0f210c1554518cd993b9e4997}
       \field{sortinit}{8}
       \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{eprintclass}{cs.CL}
-      \field{eprinttype}{arXiv}
-      \field{title}{ArtPrompt: ASCII Art-based Jailbreak Attacks against Aligned LLMs}
+      \field{abstract}{Safety is critical to the usage of large language models (LLMs). Multiple techniques such as data filtering and supervised fine-tuning have been developed to strengthen LLM safety. However, currently known techniques presume that corpora used for safety alignment of LLMs are solely interpreted by semantics. This assumption, however, does not hold in real-world applications, which leads to severe vulnerabilities in LLMs. For example, users of forums often use ASCII art, a form of text-based art, to convey image information. In this paper, we propose a novel ASCII art-based jailbreak attack and introduce a comprehensive benchmark Vision-in-Text Challenge (ViTC) to evaluate the capabilities of LLMs in recognizing prompts that cannot be solely interpreted by semantics. We show that five SOTA LLMs (GPT-3.5, GPT-4, Gemini, Claude, and Llama2) struggle to recognize prompts provided in the form of ASCII art. Based on this observation, we develop the jailbreak attack ArtPrompt, which leverages the poor performance of LLMs in recognizing ASCII art to bypass safety measures and elicit undesired behaviors from LLMs. ArtPrompt only requires black-box access to the victim LLMs, making it a practical attack. We evaluate ArtPrompt on five SOTA LLMs, and show that ArtPrompt can effectively and efficiently induce undesired behaviors from all five LLMs.}
+      \field{booktitle}{Proceedings of the 62nd Annual Meeting of the {A}ssociation for {C}omputational {L}inguistics (Volume 1: Long Papers)}
+      \field{month}{8}
+      \field{title}{{A}rt{P}rompt: {ASCII} Art-based Jailbreak Attacks against Aligned {LLM}s}
       \field{year}{2024}
-      \verb{eprint}
-      \verb 2402.11753
+      \field{pages}{15157\bibrangedash 15173}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.18653/v1/2024.acl-long.809
       \endverb
       \verb{urlraw}
-      \verb https://arxiv.org/abs/2402.11753
+      \verb https://aclanthology.org/2024.acl-long.809/
       \endverb
       \verb{url}
-      \verb https://arxiv.org/abs/2402.11753
+      \verb https://aclanthology.org/2024.acl-long.809/
       \endverb
     \endentry
-    \entry{mazeika2024harmbench}{misc}{}
+    \entry{chu-etal-2025-jailbreakradar}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{hash=27df71b08a61d1dc0ed0059bea3ef0d1}{%
+           family={Chu},
+           familyi={C\bibinitperiod},
+           given={Junjie},
+           giveni={J\bibinitperiod}}}%
+        {{hash=2b5dfdb6cd46d3ab9a3504e0ba9fd3ca}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Yugeng},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=e4c8f237a7456305bbab539bac961243}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Ziqing},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=394a86369b94ba6a20342602e8301844}{%
+           family={Shen},
+           familyi={S\bibinitperiod},
+           given={Xinyue},
+           giveni={X\bibinitperiod}}}%
+        {{hash=4b96cad75f27ce1349d97e2aea69ac76}{%
+           family={Backes},
+           familyi={B\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=e760d38078aff4a5b24c867aa5178c26}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Yang},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \name{editor}{4}{}{%
+        {{hash=cb0803882fba28a6c7ecb519069a89de}{%
+           family={Che},
+           familyi={C\bibinitperiod},
+           given={Wanxiang},
+           giveni={W\bibinitperiod}}}%
+        {{hash=bfe9d325a7c90fcd2c57a7d9ff201524}{%
+           family={Nabende},
+           familyi={N\bibinitperiod},
+           given={Joyce},
+           giveni={J\bibinitperiod}}}%
+        {{hash=c36f9fc7c3f7617b9ee71cb8646c6f30}{%
+           family={Shutova},
+           familyi={S\bibinitperiod},
+           given={Ekaterina},
+           giveni={E\bibinitperiod}}}%
+        {{hash=25546e3752457eae386c91911a2fb5f8}{%
+           family={Pilehvar},
+           familyi={P\bibinitperiod},
+           given={Mohammad\bibnamedelima Taher},
+           giveni={M\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Vienna, Austria}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computational Linguistics}%
+      }
+      \strng{namehash}{7071afb56aaacc92a307972e87eb1ba6}
+      \strng{fullhash}{05ddff0a7185e86e32ce6864b7ac7ece}
+      \strng{bibnamehash}{05ddff0a7185e86e32ce6864b7ac7ece}
+      \strng{authorbibnamehash}{05ddff0a7185e86e32ce6864b7ac7ece}
+      \strng{authornamehash}{7071afb56aaacc92a307972e87eb1ba6}
+      \strng{authorfullhash}{05ddff0a7185e86e32ce6864b7ac7ece}
+      \strng{editorbibnamehash}{fbc5cc62b7fffb46f357f510b4531271}
+      \strng{editornamehash}{6810c318bea26b0d4170d243c1a0e7ee}
+      \strng{editorfullhash}{fbc5cc62b7fffb46f357f510b4531271}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Jailbreak attacks aim to bypass the LLMs' safeguards. While researchers have proposed different jailbreak attacks in depth, they have done so in isolation{---}either with unaligned settings or comparing a limited range of methods. To fill this gap, we present a large-scale evaluation of various jailbreak attacks. We collect 17 representative jailbreak attacks, summarize their features, and establish a novel jailbreak attack taxonomy. Then we conduct comprehensive measurement and ablation studies across nine aligned LLMs on 160 forbidden questions from 16 violation categories. Also, we test jailbreak attacks under eight advanced defenses. Based on our taxonomy and experiments, we identify some important patterns, such as heuristic-based attacks, which could achieve high attack success rates but are easy to mitigate by defenses. Our study offers valuable insights for future research on jailbreak attacks and defenses and serves as a benchmark tool for researchers and practitioners to evaluate them effectively.}
+      \field{booktitle}{Proceedings of the 63rd Annual Meeting of the {A}ssociation for {C}omputational {L}inguistics (Volume 1: Long Papers)}
+      \field{isbn}{979-8-89176-251-0}
+      \field{month}{7}
+      \field{title}{{J}ailbreak{R}adar: Comprehensive Assessment of Jailbreak Attacks Against {LLM}s}
+      \field{year}{2025}
+      \field{pages}{21538\bibrangedash 21566}
+      \range{pages}{29}
+      \verb{doi}
+      \verb 10.18653/v1/2025.acl-long.1045
+      \endverb
+      \verb{urlraw}
+      \verb https://aclanthology.org/2025.acl-long.1045/
+      \endverb
+      \verb{url}
+      \verb https://aclanthology.org/2025.acl-long.1045/
+      \endverb
+    \endentry
+    \entry{xu2024bagtricksbenchmarkingjailbreak}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=951d25ab49d4c36524ef2932653c07d8}{%
+           family={LIU},
+           familyi={L\bibinitperiod},
+           given={Fan},
+           giveni={F\bibinitperiod}}}%
+        {{hash=94d949b5b0fb720164b2a755eb7f2505}{%
+           family={LIU},
+           familyi={L\bibinitperiod},
+           given={Hao},
+           giveni={H\bibinitperiod}}}%
+        {{hash=cc4a067893316b940a94287b9eaac5cf}{%
+           family={XU},
+           familyi={X\bibinitperiod},
+           given={Zhao},
+           giveni={Z\bibinitperiod}}}%
+      }
+      \strng{namehash}{5d66fa562dc36e1ff9deca63b9d86408}
+      \strng{fullhash}{31a8f0e74b8b7ffa0fa09a696c905d12}
+      \strng{bibnamehash}{31a8f0e74b8b7ffa0fa09a696c905d12}
+      \strng{authorbibnamehash}{31a8f0e74b8b7ffa0fa09a696c905d12}
+      \strng{authornamehash}{5d66fa562dc36e1ff9deca63b9d86408}
+      \strng{authorfullhash}{31a8f0e74b8b7ffa0fa09a696c905d12}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{01}
+      \field{title}{Bag of Tricks: Benchmarking of Jailbreak Attacks on LLMs}
+      \field{year}{2024}
+      \field{pages}{32219\bibrangedash 32250}
+      \range{pages}{32}
+      \verb{doi}
+      \verb 10.52202/079017-1012
+      \endverb
+    \endentry
+    \entry{chao2024jailbreakbench}{inproceedings}{}
+      \name{author}{12}{}{%
+        {{hash=af9b6149ec495d4a499c50c2fbfa35e8}{%
+           family={Chao},
+           familyi={C\bibinitperiod},
+           given={Patrick},
+           giveni={P\bibinitperiod}}}%
+        {{hash=fe2792692f498a86347eef86a69e426d}{%
+           family={Debenedetti},
+           familyi={D\bibinitperiod},
+           given={Edoardo},
+           giveni={E\bibinitperiod}}}%
+        {{hash=6380ce32790ff3846c7882b02d01d6ac}{%
+           family={Robey},
+           familyi={R\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+        {{hash=37eab590a70071733a7207c69c1de93b}{%
+           family={Andriushchenko},
+           familyi={A\bibinitperiod},
+           given={Maksym},
+           giveni={M\bibinitperiod}}}%
+        {{hash=4aa1c6d22c8d3aad56c30c5c0d361b7a}{%
+           family={Croce},
+           familyi={C\bibinitperiod},
+           given={Francesco},
+           giveni={F\bibinitperiod}}}%
+        {{hash=abfe760037f20c4c790cacd921b8719c}{%
+           family={Sehwag},
+           familyi={S\bibinitperiod},
+           given={Vikash},
+           giveni={V\bibinitperiod}}}%
+        {{hash=facc1c652916b234e238c4cd8bb5ff9d}{%
+           family={Dobriban},
+           familyi={D\bibinitperiod},
+           given={Edgar},
+           giveni={E\bibinitperiod}}}%
+        {{hash=e2d7053f85144a452931150e4ba9f19c}{%
+           family={Flammarion},
+           familyi={F\bibinitperiod},
+           given={Nicolas},
+           giveni={N\bibinitperiod}}}%
+        {{hash=13515e3859af5918925e99eddb9a9079}{%
+           family={Pappas},
+           familyi={P\bibinitperiod},
+           given={George\bibnamedelima J.},
+           giveni={G\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=ab482c2931db00ecd5b1e89bbe011cb5}{%
+           family={Tramèr},
+           familyi={T\bibinitperiod},
+           given={Florian},
+           giveni={F\bibinitperiod}}}%
+        {{hash=2ae4b63ed737cd7c460502a3d6aa594a}{%
+           family={Hassani},
+           familyi={H\bibinitperiod},
+           given={Hamed},
+           giveni={H\bibinitperiod}}}%
+        {{hash=b253086f8939563210b4a6114613aad7}{%
+           family={Wong},
+           familyi={W\bibinitperiod},
+           given={Eric},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Vancouver, BC, Canada}%
+      }
+      \list{publisher}{1}{%
+        {Curran Associates Inc.}%
+      }
+      \strng{namehash}{6466bee12d2bf9cd9776ac8f5feef514}
+      \strng{fullhash}{a70192497505640ab148a09febba24f3}
+      \strng{bibnamehash}{8621cd383f0927a1b91b033d7259ccb4}
+      \strng{authorbibnamehash}{8621cd383f0927a1b91b033d7259ccb4}
+      \strng{authornamehash}{6466bee12d2bf9cd9776ac8f5feef514}
+      \strng{authorfullhash}{a70192497505640ab148a09febba24f3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Jailbreak attacks cause large language models (LLMs) to generate harmful, unethical, or otherwise objectionable content. Evaluating these attacks presents a number of challenges, which the current collection of benchmarks and evaluation techniques do not adequately address. First, there is no clear standard of practice regarding jailbreaking evaluation. Second, existing works compute costs and success rates in incomparable ways. And third, numerous works are not reproducible, as they withhold adversarial prompts, involve closed-source code, or rely on evolving proprietary APIs. To address these challenges, we introduce JailbreakBench, an open-sourced benchmark with the following components: (1) an evolving repository of state-of-the-art adversarial prompts, which we refer to as jailbreak artifacts; (2) a jailbreaking dataset comprising 100 behaviors— both original and sourced from prior work (Zou et al., 2023; Mazeika et al., 2023, 2024)—which align with OpenAI's usage policies; (3) a standardized evaluation framework at https://github.com/JailbreakBench/jailbreakbench that includes a clearly defined threat model, system prompts, chat templates, and scoring functions; and (4) a leaderboard at https://jailbreakbench.github.io/ that tracks the performance of attacks and defenses for various LLMs. We have carefully considered the potential ethical implications of releasing this benchmark, and believe that it will be a net positive for the community.}
+      \field{booktitle}{Proceedings of the 38th International Conference on Neural Information Processing Systems}
+      \field{isbn}{9798331314385}
+      \field{series}{NIPS '24}
+      \field{title}{JailbreakBench: an open robustness benchmark for jailbreaking large language models}
+      \field{year}{2024}
+    \endentry
+    \entry{mazeika2024harmbench}{inproceedings}{}
       \name{author}{12}{}{%
         {{hash=cf291551acefa6a31206eb6853b65648}{%
            family={Mazeika},
@@ -772,6 +1036,12 @@
            given={Dan},
            giveni={D\bibinitperiod}}}%
       }
+      \list{location}{1}{%
+        {Vienna, Austria}%
+      }
+      \list{publisher}{1}{%
+        {JMLR.org}%
+      }
       \strng{namehash}{9423fb472d91dee872c7b1e5d1699ae7}
       \strng{fullhash}{21a2030ac9dbec6b44d78fb39703aa82}
       \strng{bibnamehash}{bfffc98c49b36057dd30f58951845173}
@@ -782,19 +1052,11 @@
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{eprintclass}{cs.LG}
-      \field{eprinttype}{arXiv}
-      \field{title}{HarmBench: A Standardized Evaluation Framework for Automated Red Teaming and Robust Refusal}
+      \field{abstract}{Automated red teaming holds substantial promise for uncovering and mitigating the risks associated with the malicious use of large language models (LLMs), yet the field lacks a standardized evaluation framework to rigorously assess new methods. To address this issue, we introduce HarmBench, a standardized evaluation framework for automated red teaming. We identify several desirable properties previously unaccounted for in red teaming evaluations and systematically design HarmBench to meet these criteria. Using HarmBench, we conduct a large-scale comparison of 18 red teaming methods and 33 target LLMs and defenses, yielding novel insights. We also introduce a highly efficient adversarial training method that greatly enhances LLM robustness across a wide range of attacks, demonstrating how HarmBench enables codevelopment of attacks and defenses. We open source HarmBench at https://github.com/centerforaisafety/HarmBench.}
+      \field{booktitle}{Proceedings of the 41st International Conference on Machine Learning}
+      \field{series}{ICML'24}
+      \field{title}{HarmBench: a standardized evaluation framework for automated red teaming and robust refusal}
       \field{year}{2024}
-      \verb{eprint}
-      \verb 2402.04249
-      \endverb
-      \verb{urlraw}
-      \verb https://arxiv.org/abs/2402.04249
-      \endverb
-      \verb{url}
-      \verb https://arxiv.org/abs/2402.04249
-      \endverb
     \endentry
     \entry{ding2025indianajonesusefulrelics}{misc}{}
       \name{author}{6}{}{%
@@ -846,12 +1108,6 @@
       \field{year}{2025}
       \verb{eprint}
       \verb 2501.18628v1
-      \endverb
-      \verb{urlraw}
-      \verb https://arxiv.org/abs/2501.18628v1
-      \endverb
-      \verb{url}
-      \verb https://arxiv.org/abs/2501.18628v1
       \endverb
     \endentry
     \entry{singh2026openaigpt5card}{misc}{}
@@ -3302,12 +3558,6 @@
       \verb{eprint}
       \verb 2601.03267
       \endverb
-      \verb{urlraw}
-      \verb https://arxiv.org/abs/2601.03267
-      \endverb
-      \verb{url}
-      \verb https://arxiv.org/abs/2601.03267
-      \endverb
     \endentry
     \entry{yuan2025hardrefusalssafecompletionsoutputcentric}{misc}{}
       \name{author}{7}{}{%
@@ -3363,12 +3613,6 @@
       \field{year}{2025}
       \verb{eprint}
       \verb 2508.09224
-      \endverb
-      \verb{urlraw}
-      \verb https://arxiv.org/abs/2508.09224
-      \endverb
-      \verb{url}
-      \verb https://arxiv.org/abs/2508.09224
       \endverb
     \endentry
     \entry{deepseekai2025deepseekv32pushingfrontieropen}{misc}{}
@@ -4709,12 +4953,6 @@
       \verb{eprint}
       \verb 2512.02556
       \endverb
-      \verb{urlraw}
-      \verb https://arxiv.org/abs/2512.02556
-      \endverb
-      \verb{url}
-      \verb https://arxiv.org/abs/2512.02556
-      \endverb
     \endentry
     \entry{promptfoo2025deepseekv32}{report}{}
       \name{author}{1}{}{%
@@ -4758,8 +4996,8 @@
       \strng{authorbibnamehash}{f431db65cea024a5f19eab835afefee2}
       \strng{authornamehash}{f431db65cea024a5f19eab835afefee2}
       \strng{authorfullhash}{f431db65cea024a5f19eab835afefee2}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{System Card: Claude Haiku 4.5}

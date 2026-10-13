@@ -1,14 +1,14 @@
 # Fdb version 4
-["biber Projektarbeit"] 1789401798.30959 "Projektarbeit.bcf" "Projektarbeit.bbl" "Projektarbeit" 1789401804.08555 0
-  "./bibliography.bib" 1788960178.76391 15648 e24c8943af4aee0433c8b013f5bf6805 ""
-  "Projektarbeit.bcf" 1789401803.98417 109572 7c7484cd2a53bc724e2eb94cbf5a0dbe "pdflatex"
+["biber Projektarbeit"] 1791821967.1479 "Projektarbeit.bcf" "Projektarbeit.bbl" "Projektarbeit" 1791823260.71625 0
+  "./bibliography.bib" 1791818195.67776 18000 cdf54c5fc6f0013b2d9e0d5fbed10df3 ""
+  "Projektarbeit.bcf" 1791823260.59205 110343 6b2fd0c82eb2107373cff12d12d3099b "pdflatex"
   (generated)
   "Projektarbeit.bbl"
   "Projektarbeit.blg"
   (rewritten before read)
-["pdflatex"] 1789401802.24115 "/home/dominik/Repositories/Projektarbeit_Master/Doku/Projektarbeit.tex" "Projektarbeit.pdf" "Projektarbeit" 1789401804.08583 0
+["pdflatex"] 1791823258.63727 "/home/dominik/Repositories/Projektarbeit_Master/Doku/Projektarbeit.tex" "Projektarbeit.pdf" "Projektarbeit" 1791823260.71657 0
   "/etc/texmf/web2c/texmf.cnf" 1775222499.84888 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/dominik/Repositories/Projektarbeit_Master/Doku/Projektarbeit.tex" 1789401793.84705 25312 b3be4604fd74a3c12530bedd8f661462 ""
+  "/home/dominik/Repositories/Projektarbeit_Master/Doku/Projektarbeit.tex" 1791823256.27201 49716 3329a879b0fbedc516513807d9f47e16 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -23,11 +23,16 @@
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1136768653 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti12.tfm" 1136768653 1484 ed72f8f5cf654cda15ecc8e32bfcbee5 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm" 1136768653 768 1321e9409b4137d6fb428ac9dc956269 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm" 1136768653 772 9a936b7f5e2ff0557fce0f62822f0bbf ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1248133631 32362 179c33bbf43f19adbb3825bb4e36e57a ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb" 1248133631 36118 fad905eba93cff5bce1e185fe980a177 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1248133631 31099 c85edf1dd5b9e826d67c9c7293b6786c ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb" 1248133631 24252 1e4e051947e12dfb50fee0b7f4e26e3a ""
   "/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/share/texlive/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1575674566 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
@@ -220,11 +225,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1775222540.41299 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1775222588 8214991 0c94f30139a813a72c19cc829258741e ""
-  "Projektarbeit.aux" 1789401803.98017 6578 de275a55070767a901df408354d43aec "pdflatex"
-  "Projektarbeit.bbl" 1789401800.27312 153620 e3468bbf02a079afafc9f8483434739f "biber Projektarbeit"
-  "Projektarbeit.out" 1789401803.98317 1161 a4822f096f94e8431efe94f034d647c0 "pdflatex"
-  "Projektarbeit.run.xml" 1789401803.98517 2503 6d3935164bc04444a4122e52bbd15697 "pdflatex"
-  "Projektarbeit.tex" 1789401793.84705 25312 b3be4604fd74a3c12530bedd8f661462 ""
+  "Projektarbeit.aux" 1791823260.58705 10076 807a19a210fe62326137361fbbf6a4df "pdflatex"
+  "Projektarbeit.bbl" 1791821969.2435 174679 73ddc12ddbf86ebcb7c1f5f04c4fafd2 "biber Projektarbeit"
+  "Projektarbeit.out" 1791823260.59105 1268 bd42c748816b084a01be7efdea821611 "pdflatex"
+  "Projektarbeit.run.xml" 1791823260.59405 2503 6d3935164bc04444a4122e52bbd15697 "pdflatex"
+  "Projektarbeit.tex" 1791823256.27201 49716 3329a879b0fbedc516513807d9f47e16 ""
   (generated)
   "Projektarbeit.aux"
   "Projektarbeit.bcf"

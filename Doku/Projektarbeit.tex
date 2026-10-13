@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper,twocolumn]{article}
+\documentclass[11pt,a4paper,twocolumn]{article}
 
 % Page layout
 \usepackage[margin=1in]{geometry}
@@ -82,6 +82,8 @@ natbib
 	}
 }
 
+\renewcommand{\thefootnote}{*}
+
 % Title
 \title{%
 	Comparative Evaluation of the Robustness of State-of-the-Art LLMs
@@ -125,10 +127,10 @@ natbib
 	Importantly, these methods exploit fundamentally different aspects of an LLM and its safety mechanisms.
 	
 	One prominent approach is the use of gradient-based adversarial suffixes.
-	Zou et al. introduced Greedy Coordinate Gradient (GCG), which searches for adversarial token sequences that can be appended to harmful instructions to increase the probability of eliciting a non-refusal response \cite{zou2023universaltransferableadversarialattacks}.
+	Zou et al. \cite{zou2023universaltransferableadversarialattacks} introduced Greedy Coordinate Gradient (GCG), which searches for adversarial token sequences that can be appended to harmful instructions to increase the probability of eliciting a non-refusal response.
 	Other attacks instead exploit conversational context.
-	Crescendo progressively guides a model toward a prohibited objective over multiple turns, beginning with comparatively benign requests and building upon the model's previous responses \cite{russinovich2025greatwritearticlethat}.
-	The Indiana Jones attack, introduced within the TombRaider framework, follows another strategy by embedding harmful objectives within historical and narrative contexts \cite{ding2025tombraiderenteringvaulthistory}.
+	Crescendo \cite{russinovich2025greatwritearticlethat} progressively guides a model toward a prohibited objective over multiple turns, beginning with comparatively benign requests and building upon the model's previous responses.
+	The Indiana Jones attack, introduced within the TombRaider framework \cite{ding2025tombraiderenteringvaulthistory}, follows another strategy by embedding harmful objectives within historical and narrative contexts.
 	These approaches therefore represent three distinct attack classes: gradient-based, multi-turn, and narrative jailbreaks.
 	
 	Although previous work demonstrates the effectiveness of these techniques, two challenges motivate their re-evaluation.
@@ -161,24 +163,36 @@ natbib
 	Jailbreaking can also be achieved without access to model parameters.
 	Prompt-based attacks instead manipulate the semantic or representational context in which instructions are presented.
 	Prior work has demonstrated several variants of this approach.
-	\textbf{PromptAttack}, for example, uses LLMs themselves to generate adversarial inputs \cite{xu2024promptattack}, while \textbf{ArtPrompt} exploits alternative representations using ASCII art \cite{jiang2024artprompt}.
+	\textbf{PromptAttack} \cite{xu2024promptattack}, for example, uses LLMs themselves to generate adversarial inputs, while \textbf{ArtPrompt} \cite{jiang2024artprompt} exploits alternative representations using ASCII art.
 	These results illustrate that model safeguards can be sensitive not only to the requested content but also to how that content is represented.
 	
-	The \textbf{Indiana Jones attack}, introduced as part of the TombRaider framework by Ding et al., represents a narrative-oriented variation of this principle \cite{ding2025tombraiderenteringvaulthistory}.
+	The \textbf{Indiana Jones attack}, introduced as part of the TombRaider framework by Ding et al. \cite{ding2025tombraiderenteringvaulthistory}, represents a narrative-oriented variation of this principle.
 	It uses historical and narrative contexts to frame otherwise restricted requests.
 	Unlike GCG, which operates through token-level optimization, this approach targets the model's interpretation of semantic context and narrative intent.
 	
 	Another attack surface emerges from the conversational nature of modern LLMs.
-	\textbf{Crescendo}, proposed by Russinovich et al., is a multi-turn jailbreak in which the interaction progresses incrementally from benign discussion toward a prohibited objective \cite{russinovich2025greatwritearticlethat}.
+	\textbf{Crescendo}, proposed by Russinovich et al. \cite{russinovich2025greatwritearticlethat}, is a multi-turn jailbreak in which the interaction progresses incrementally from benign discussion toward a prohibited objective.
 	By building upon information established during previous turns, the attack demonstrates that safety evaluations based solely on isolated prompts may overlook vulnerabilities arising from accumulated conversational context.
 	
-	Finally, meaningful comparison between jailbreak techniques requires consistent evaluation criteria.
-	\textbf{HarmBench}, introduced by Mazeika et al., provides a standardized framework for automated red teaming and the evaluation of harmful model behavior \cite{mazeika2024harmbench}.
-	The present work builds upon this approach by using Attack Success Rate (ASR) derived from classification of generated responses rather than relying solely on refusal keywords, consistent with the evaluation strategy established in the project proposal.
+	Beyond individual jailbreak techniques, several studies have investigated the comparative effectiveness of different attack methods.
+	Chu et al. \cite{chu-etal-2025-jailbreakradar} systematically evaluate 17 jailbreak methods against eight LLMs, demonstrating differences in attack effectiveness across models and harmful behavior categories.
+	
+	Similarly, Xu et al. \cite{xu2024bagtricksbenchmarkingjailbreak} introduce \textbf{JailTrickBench}, which compares seven jailbreak attacks against six defense methods.
+	Their study additionally examines how attack configurations and target-model characteristics influence jailbreak success, emphasizing the importance of consistent experimental conditions.
+	
+	Chao et al. \cite{chao2024jailbreakbench} address comparability and reproducibility through \textbf{JailbreakBench}, which provides standardized harmful behaviors, evaluation procedures, and a leaderboard for comparing jailbreak attacks and defenses.
+	
+	Meaningful comparisons between jailbreak techniques require consistent evaluation criteria.
+	\textbf{HarmBench}, introduced by Mazeika et al. \cite{mazeika2024harmbench}, provides a standardized framework for automated red teaming and the evaluation of harmful model behavior.
+	The present work builds upon this approach by using Attack Success Rate (ASR) derived from classification of generated responses rather than relying solely on refusal keywords.
+	
+	Finally, individual LLMs are also examined for gaps and thoroughly tested.
+	This is partially done by the LLM providers themselves \cite{claudehaiku45systemcard} and also by third parties, like Promptfoo, which release test reports for many different state-of-the-art LLMs, like for example DeepSeek-v3.2 \cite{promptfoo2025deepseekv32}.
 	
 	\section{Implemented Examples}
 	
-	We implemented 3 different classes of attacks (Crescendo attacks, Indiana Jones attacks, Suffix attacks) for three different LLMs, Claude Haiku 4.5, Chat-GPT 5.4-nano, and DeepSeek-v3.2.
+	We implemented 3 different classes of attacks (Crescendo attacks, Indiana Jones attacks, Suffix attacks).
+	Each of the three attack classes was tested against three different LLMs, Claude Haiku 4.5, Chat-GPT 5.4-nano, and DeepSeek-v3.2.
 	For each attack on a LLM we used a subset of ten different behaviors from the AdvBench dataset.
 	All of the used behaviors are listed and explained in \autoref{tab:behaviors}.
 	
@@ -214,9 +228,9 @@ natbib
 	
 	\subsection{Crescendo}
 	
-	The Crescendo attack \cite{russinovich2025greatwritearticlethat} is a multi-turn jailbreak attack that interacts with the model in a seemingly benign manner but gradually escalates the dialogue by referencing the model's previous answers \cite{russinovich2025greatwritearticlethat}.
+	The Crescendo attack \cite{russinovich2025greatwritearticlethat} is a multi-turn jailbreak attack that interacts with the model in a seemingly benign manner but gradually escalates the dialogue by referencing the model's previous answers.
 	
-	Most importantly, is that the Crescendo attack is a completely black-box jailbreak attack \cite{russinovich2025greatwritearticlethat}, meaning that we do not know anything about the LLM that is being attacked (the target model).
+	Most importantly, the Crescendo attack is a completely black-box jailbreak attack, meaning that we do not know anything about the LLM that is being attacked (the target model).
 	It is executed through entirely normal interactions with the target model.
 	To fully automate this attack only two things are needed.
 	
@@ -290,7 +304,9 @@ natbib
 	
 	\begin{itemize}
 		\item Was a jailbreak successful?
-		\item Did the victim LLM drift in its response?
+		
+		\item Did the victim LLM drift\footnote{LLM Drift is a phenomenon observed when a LLM gradually loses the actual context of a conversation and "drifts off" into unwanted directions} in its response?
+		
 		\item Did the victim LLM refuse a direct response?
 	\end{itemize}
 	
@@ -316,24 +332,24 @@ natbib
 	\end{itemize}
 	
 	We defined the maximum number of consecutive refusals to be 3 and the maximum number of rounds without a jailbreak for a single behavior to be 10.
-	These numbers were determined after a bit of testing and found to be the best fitting.
+	These numbers were determined after a bit of testing and found to be the best\footnote{The attacks had the highest ASR while testing the setup and the attack-parameters} fitting.
 	
 	With these "break conditions" we were able to end a tested behavior early.
 	
 	\subsection{Indiana Jones}
 	
 	The Indiana Jones \cite{ding2025indianajonesusefulrelics} (or TombRaider \cite{ding2025tombraiderenteringvaulthistory}) attack is a multi-turn jailbreak attack that leverages keyword-driven prompts.
-	The original attack implements two different LLMs, one target model and one orchestrating model \cite{ding2025indianajonesusefulrelics}.
-	In addition to that a checker (judge) is implemented as well.
+	The original attack integrates two different LLMs, one target model and one orchestrating model \cite{ding2025indianajonesusefulrelics}.
+	In addition to that a checker (judge) is used as well.
 	Here the judge has two tasks: 
 	
-	\begin{enumerate}
-		\item In the beginning of the attack, the judge has to assess which direction is most suitable for a jailbreak for the user-provided keyword and instructs the target model to generate relevant historical or contextual information.
+	\begin{enumerate}		
+		\item In the beginning of the attack, the judge has to assess which direction is most suitable for a jailbreak for the user-provided keyword and instructs the target model to generate relevant historical or contextual information. The user-provided keyword would be what a malicious user wants to achieve with the attack, e.g. "Cash smuggling" or "Bank robbery".
 		
 		\item Later the judge evaluates every output from the target model, checks whether it is appropriate and passes it to the orchestrating model to deepen the attack or if the output is already a jailbreak.
 	\end{enumerate}
 	
-	The later iteration of the Indiana Jones attack, the TombRaider attack, implements one LLM more that acts as a so called \textit{Inspector} \cite{ding2025tombraiderenteringvaulthistory}.
+	The later iteration of the Indiana Jones attack, the TombRaider attack, utilizes one LLM more that acts as a so called \textit{Inspector} \cite{ding2025tombraiderenteringvaulthistory}.
 	In the beginning the Inspector receives the user-provided keyword and generates an initial prompt that is grounded in historical or cultural facts.
 	This initial prompt is then refined into a factual query by the orchestrating model to anchor the dialogue in semantically safe territory \cite{ding2025tombraiderenteringvaulthistory}.
 	In later turns the Inspector receives the entire history of answers of the target model to identify and reframe the most semantically rich or provocative entity.
@@ -351,7 +367,8 @@ natbib
 	Our judge is also again llama-guard3 used with ollama.
 	The target models that we tested are the same as before, Claude Haiku 4.5, Chat-GPT 5.4-nano, or DeepSeek-v3.2.
 	
-	We limited the number of attacks to 5 keywords or key phrases per behavior and for each of the keywords or phrases we run one attempt, that can be seen in \autoref{fig:attempt_indiana}, with maximum two rounds.
+	We limited the number of attacks to 5 keywords or key phrases per behavior since we were unable to detect an improvement in the effectiveness of the attack with a higher number of keywords or key phrases.
+	For each of the keywords or phrases we run one attempt, which can be seen in \autoref{fig:attempt_indiana}, with a maximum of two rounds inside of each attempt.
 	We were able to observe that the attack did not increase its effectiveness with a higher number of rounds per keyword or key phrase.
 	
 	\begin{figure*} [t]
@@ -367,7 +384,7 @@ natbib
 			{Orchestrator LLM generates one benign keyword/key phrase associated with behavior};
 			
 			\node[process, right=of keyword] (attempt)
-			{Run an attempt with the keyword/key phrase};
+			{Run an attempt with the keyword/key phrase, further displayed in \autoref{fig:attempt_indiana}};
 			
 			\node[decision, below=of attempt] (inspect)
 			{Attack successful?};
@@ -398,9 +415,8 @@ natbib
 	
 	\bigskip
 	
-	As seen in \autoref{fig:data_flow_indiana} we did not did not check for drift or refusal in between the attempts.
+	As seen in \autoref{fig:data_flow_indiana} we did not check for drift or refusal in between the attempts.
 	This is because we ran each attempt with a clean and empty context and only allowed two rounds of back-and-forth per keyword or phrase in each attempt.
-	We set the number of maximum attempts per behavior to five since we were unable to detect an improvement in the effectiveness of the attack.
 	
 	\begin{figure*} [t]
 		\centering
@@ -470,7 +486,7 @@ natbib
 			\draw [arrow] (target2) -- (inspectjailbreak2);
 			\draw [arrow] (inspectjailbreak2.south) -- node[right]{no} (inspectrefusal2);
 			\draw [arrow] (inspectjailbreak2.west) -| node[pos=0.2, above]{yes} (end-jailbreak2);
-			\draw [arrow] (inspectrefusal2.east) -- node[left]{no} (max-rounds.east);
+			\draw [arrow] (inspectrefusal2.east) -| node[below]{no} (max-rounds.east);
 			\draw [arrow] (inspectrefusal2.south) -- node[right] {yes} (end-refusal2);
 			\draw [arrow] (max-rounds.south) -- node[right]{no} (escalation2);
 			\draw [arrow] (max-rounds.north) -| node[above]{yes} (end-max-rounds);
@@ -489,29 +505,29 @@ natbib
 	After the first round is completed and we had no jailbreak and no refusal from the victim LLM we start the second round.
 	From this round and onward we try to escalate the conversation with each round.
 	This will go on until the maximum number of rounds per attempt has been reached, in our tests we set this number to 2, as mentioned before.
+	Again the maximum number of rounds per attempt was determined empirically.
 	
 	\bigskip
 	
-	We also added one more step in each round that is not mentioned in \autoref{fig:attempt_indiana}.
-	And that is because it does not contribute to the attack but just check whether the facts that were generated in the responses by the victim LLM make sense or not.
+	We also added one more step in each round that is not mentioned in \autoref{fig:attempt_indiana}, because it does not contribute to the attack but just checks whether the facts that were generated in the responses by the victim LLM make sense or not.
 	
 	\subsection{Suffix}
 	
 	The Suffix attack is a gradient-based attack that aims to jailbreak a LLM by calculating a string of suffixes that are aimed to circumvent the alignment of the target LLM \cite{zou2023universaltransferableadversarialattacks}.
-	This can be only be done if the LLM does not use an undisclosed set of weights, the LLM is a so called open-weight LLM, and we are able to get the correct weights.
+	This can only be done if the LLM does not use an undisclosed set of weights, the LLM is a so-called open-weight LLM, and we are able to get the correct weights.
 	Because only then we are able to calculate the gradient for a prompt.
 	This is made possible because a LLM is "just" a composition of many mathematical functions.
-	Therefore we can calculate a gradient, or a subgradient, for all of these functions and with this we can determine where the "decision boundary" between a malicious and a benign promt is.
+	Therefore we can calculate a gradient, or a subgradient, for all of these functions and with this we can determine where the "decision boundary" between a malicious and a benign prompt is.
 	As soon as we have this information we are able to adjust our prompt in a way that the LLM sees it as a benign prompt even though it is not.
 	
-	If we do not have the weights for the target LLM available, so the target LLM is a so called black-box LLM, there is still a possibilty that a calculated suffix for a known white-box model is transferable to our tested black-box LLM.
+	If we do not have the weights for the target LLM available, so the target LLM is a so called black-box LLM, there is still a possibility that a calculated suffix for a known white-box model is transferable to our tested black-box LLM.
 	This is the transferability of a suffix.
 	
 	One of the biggest, if not the biggest, problems with the suffix attack is that it is computationally very heavy and needs a lot of compute hardware because modern LLMs don´t just use a few million parameters (the number of weights of neurons and connections), but usually numbers in the billions getting close to the trillions.
 	And all of these parameters need to be saved in order to be able to use them in a computation.
 	Therefore with the current prices of such hardware this attack is only possible with a very high budget.
 	
-	We use the NanoGCG implementation to calculate our suffixes.
+	We use the NanoGCG\footnote{NanoGCG can be found here: \url{https://github.com/GraySwanAI/nanoGCG}} implementation to calculate our suffixes.
 	This implementation has the advantage of being simple to implement and the ability to lower the peak VRAM usage at the cost of additional sequential forward passes, therefore being able to run on smaller GPUs.
 	
 	Since we are testing three black-box LLMs, Claude Haiku 4.5, Chat-GPT 5.4-nano, or DeepSeek-v3.2, we are not able to calculate the suffix directly on the target LLM.
@@ -525,7 +541,8 @@ natbib
 		\item Mistral Instruct 7B
 	\end{itemize}
 	
-	With the calculated suffix from two different white-box models we are better able to generalize the effectiveness of the attack against state-of-the-art LLMs.
+	With the calculated suffix from two different white-box models we are able to better generalize the effectiveness of the attack against state-of-the-art LLMs.
+	Our calculated suffixes had a mean loss of $1.048$ for Llama-3.1 Instruct 8B and $0.281$ for Mistral Instruct 7B.
 	
 	These two models were not used in the original paper for the Suffix attack, which used Vicuna 7B and LLaMA-2 \cite{zou2023universaltransferableadversarialattacks}, we chose different models, because we are testing state-of-the-art LLMs we cannot rely on suffixes that were calculated on comparatively old models using old architecture.
 	To be able to make the best assumptions about the effectiveness of the attack we need to use more modern white-box LLMs to calculate our suffixes.
@@ -543,14 +560,16 @@ natbib
 	\bigskip
 	
 	We again use the same subset of the AdvBench dataset that we used for the Crescendo and the Indiana Jones attack which consists of ten different behaviors.
-	For the actual calculation of the suffix we chose to calculate the suffix for one behavior at a time even though it is possible to calculate universal Multi-prompt suffixes \cite{zou2023universaltransferableadversarialattacks}.
+	We chose to calculate the suffix for one behavior at a time even though it is possible to calculate universal Multi-prompt suffixes \cite{zou2023universaltransferableadversarialattacks}.
 	This is again because we are limited in our GPU and compute resources.
+	Universal Multi-prompt suffixes have the difference that they are optimized on multiple prompts instead of one specific one.
+	That way one single suffix can be able to generalize better on before unseen prompts and may lead to a successful attack for such prompts.
 	
 	\section{Evaluation}
 	
 	For the evaluation of our experiments we use a hybrid approach of firstly a LLM-as-a-Judge system and secondly human assessment.
 	
-	We use the Llama Guard 3 model for our LLM-as-a-Judge system because was explicitly trained as a safety classifier and is widely regarded as a good system to classify prompts as aligned or a jailbreak.
+	We use the Llama Guard 3 model for our LLM-as-a-Judge system because it was explicitly trained as a safety classifier and is widely regarded as a good system to classify prompts as aligned or a jailbreak.
 	With this system we have a solid baseline.
 	But since all LLMs are able to hallucinate and interpret information wrong it is important that all answers and prompts are classified by a human as well.
 	This way we are able to eliminate bias by one party and have good scientific results.
@@ -639,14 +658,14 @@ natbib
 	"\textit{Safe-Completions}" \cite{singh2026openaigpt5card, yuan2025hardrefusalssafecompletionsoutputcentric}, newly introduced in GPT-5, made a noticeable difference in the performance of ChatGPT 5.4-nano, but not always in a good way.
 	"Safe-Completions" are a mechanism that helps the LLM to better help the user even though the request that the user made was a malicious one.
 	This is achieved by changing the optimization target during training.
-	Now the LLM is penalized by giving unsafe outputs with respect to the severity of the violation and rewarded for safe outputs according to how helpful they are.
+	Now the LLM is penalized for giving unsafe outputs with respect to the severity of the violation and rewarded for safe outputs according to how helpful they are.
 	So the LLM always tries to be as helpful as possible while trying to stay within its boundaries to not receive a penalty.
 	We were able to observe that there are cases where the "Safe-Completions" work perfectly fine for the context of the behavior but while suppressing a directly harmful answer we were given clearly illicit content that had nothing to do with the actual behavior.
 	For example while a direct answer for how to detect and mitigate the use of fake IDs or identity documents was suppressed we were given information on how to detect risk indicators of abuse of fake identity documents.
 	This information can be directly used to circumvent such detection and enable a malicious user to engage in possible illegal and harmful activities.
 	With these observations the advantages and disadvantages of this technology are clearly seen.
 	It works very well for circumventing directly harmful content and still help the user.
-	But since "Safe-Completions" are a quite old technology, in the perspective of the AI world which is evolving at a very high pace, it just cannot keep up with all attacks.
+	But since "Safe-Completions" are a "comparatively old" technology, in the perspective of the AI world which is evolving at a very high pace, it simply cannot keep up with all attacks.
 	
 	\bigskip
 	
@@ -655,6 +674,9 @@ natbib
 	This is because with DSA earlier turns aren't guaranteed to participate in later attention.
 	And the multi-turn and context dependent Crescendo attack relies on long and rather slowly escalating conversations which cause the victim LLMs to cross their safety boundary.
 	While testing the victims with the Crescendo multi-turn attack DeepSeek-v3.2 struggled the most with adversary behaviors containing biochemical content.
+	
+	TASK: Write a short paragraph about this promptfoo report in the related works chapter
+	
 	That is quite in line with the findings from the security report of DeepSeek-v3.2-Exp that was published by Promptfoo \cite{promptfoo2025deepseekv32}.
 	Here it is important to mention that according to DeepSeek-AI DeepSeek-v3.2-Exp "uses exactly the same architecture" as DeepSeek-v3.2 \cite{deepseekai2025deepseekv32pushingfrontieropen}.
 	This is actually still quite concerning, because with information like these, people with bad intent are able to cause a lot of harm.
@@ -662,34 +684,14 @@ natbib
 	\bigskip
 	
 	Interesting here is that we were able to observe only a 20\% ASR with Claude Haiku 4.5 as the model under attack, so only half as many attacks were actually successfull compared to ChatGPT 5.4-nano and DeepSeek-v3.2.
-	This goes to show that Anthropics "Multi-turn testing" \cite{claudehaiku45systemcard} is a step in the correct direction regarding the robustness of state-of-the-art LLMs against multi-turn attacks.
+	This shows that Anthropics "Multi-turn testing" \cite{claudehaiku45systemcard} is a step in the correct direction regarding the robustness of state-of-the-art LLMs against multi-turn attacks.
 	But still we were able to observe a much higher ASR, 20\%, than Anthropic themselves did, "5\% or less" \cite{claudehaiku45systemcard}, while testing the Crescendo attack.
 	
 	\bigskip
 	
-	Apart from the results regarding the three different tested state-of-the-art LLMs we were able to observe a correlation between the length of the response and the wrong-positive rate of our LLM judge Llama Guard 3.
-	Seemingly with a shorter length comes a higher wrong-positive rate.
-	
-	\begin{table}
-		\centering
-		\begin{tabularx}{\linewidth}{X X}
-			\hline
-			\textbf{Model} &
-			\textbf{Average length of response} \\
-			\hline
-			
-			ChatGPT 5.4-nano & 3227.12 \\
-			Claude Haiku 4.5 & 1405.40 \\
-			DeepSeek-v3.2 & 4174.83 \\
-			
-			\hline
-		\end{tabularx}
-		\caption{Average length of response of victim LLM using Crescendo, in characters}
-		\label{tab:crescendo_length}
-	\end{table}
-	
-	In \autoref{tab:crescendo_length} the average length of the responses from the victim LLMs are listed.
-	With these numbers and the judgements listed in \autoref{tab:crescendo_labels} the previously mentioned correlation between wrong-positive rate by the LLM judge and length of response by the victim LLM gets pretty clear.
+	Apart from the results regarding the three different tested state-of-the-art LLMs we were able to observe a correlation between the length of the response and the false-positive rate of our LLM judge Llama Guard 3.
+	Seemingly with a shorter length comes a higher false-positive rate.
+	These findings are further explained in \autoref{sec:furtherfindings}.
 	
 	\subsection{Indiana Jones}
 	
@@ -760,7 +762,7 @@ natbib
 	\bigskip
 	
 	As seen in \autoref{fig:indiana_results} we observed that only one of the ten behaviors were successful using the Indiana Jones attack with ChatGPT 5.4-nano as the victim.
-	This goes to show that OpenAI's reworked "\textit{Preparedness Framework}" \cite{openai2025preparedness, singh2026openaigpt5card} really improved the ability of OpenAI to implement good safeguards to minimize the risk of state-of-the-art LLMs.
+	This shows that OpenAI's reworked "\textit{Preparedness Framework}" \cite{openai2025preparedness, singh2026openaigpt5card} really improved the ability of OpenAI to implement good safeguards to minimize the risk of state-of-the-art LLMs.
 	Also the in GPT-5 newly introduced "\textit{Safe-Completions}" \cite{singh2026openaigpt5card} helped the victim to not fall for the narrative attacks because with the new "\textit{Safe-Completion training}" \cite{yuan2025hardrefusalssafecompletionsoutputcentric} the LLM "learns" which narratives may lead to a malicious outcome and suppressing a malicious answer in these cases.
 	
 	\bigskip
@@ -774,16 +776,63 @@ natbib
 	
 	Very interestingly we were again able to observe that DeepSeek-v3.2 as the victim model scored just as good as ChatGPT 5.4-nano as the victim.
 	We were able to observe a 10\% success rate for the Indiana Jones attack with DeepSeek-v3.2 under attack.
-	Here our findings go against the thorough security testing from Promptfoo.
+	Here our findings contradict the thorough security testing from Promptfoo.
 	They found that jailbreaks are a concern of high-severity for DeepSeek-v3.2 \cite{promptfoo2025deepseekv32}, which we were unable to reproduce with the Indiana Jones narrative attack.
 	
 	\bigskip
 	
-	One interesting thing to mention here is that our judge had a 50\% false positive rate when compared with the actual label for each behavior as seen in \autoref{tab:indiana_labels} with Claude Haiku 4.5, even though the received answers from the victim LLM are very clearly benign and not harmful.
+	One interesting thing to mention here is that our judge had a 50\% false positive rate when compared with the actual label for each behavior as seen in \autoref{tab:indiana_labels} with Claude Haiku 4.5.
+	But again, this observation is further explained in \autoref{sec:furtherfindings}.
+	
+	\subsection{Suffix}
+	
+	Unlike with the Crescendo and the Indiana Jones attack we were unable to produce a successful jailbreak using the Suffix attack.
+	This comes quite surprising because with older LLMs the suffix attack recorded a high transferability.
+	That we did not get any transferability from our calculated suffixes can be because of multiple reasons.
+	
+	\begin{itemize}
+		\item The differences in size between our used open-weights surrogate models and our tested state-of-the-art LLMs are too great.
+		
+		\item The defenses of the tested state-of-the-art LLMs against such kind of gradient-based attacks have gotten good enough so that this attack class does not work any longer.
+		
+		\item Because most state-of-the-art LLMs nowadays differ in architecture when compared with "older" open-weights models the calculated suffixes cannot be transferred to the state-of-the-art LLMs.
+		
+		\item Filtering or preprocessing of prompts by the providers at the API level
+	\end{itemize}
+	
+	Sadly none of the three providers, OpenAI, Anthropic, and DeepSeekAI, have open documentation that could clear up the question as to why exactly we were unable to produce a successful jailbreak using our on Llama-3.1 Instruct 8B and Mistral Instruct 7B calculated suffixes.
+	
+	\subsection{Further findings}
+	\label{sec:furtherfindings}
+	
+	As briefly mentioned before we were able to observe an anti-proportional correlation between the false-positive rate of our LLM-as-a-Judge system and the length of the received response from the victim LLM, meaning the shorter the answer from the victim LLM the higher the false-positive rate from our LLM judge.
+	
+	\begin{table}
+		\centering
+		\begin{tabularx}{\linewidth}{X X}
+			\hline
+			\textbf{Model} &
+			\textbf{Average length of response} \\
+			\hline
+			
+			ChatGPT 5.4-nano & 3227.12 \\
+			Claude Haiku 4.5 & 1405.40 \\
+			DeepSeek-v3.2 & 4174.83 \\
+			
+			\hline
+		\end{tabularx}
+		\caption{Average length of response of victim LLM using Crescendo, in characters}
+		\label{tab:crescendo_length}
+	\end{table}
+	
+	In \autoref{tab:crescendo_length} the average length of the responses from the victim LLMs, tested with the Crescendo attack, are listed.
+	With these numbers and the judgements listed in \autoref{tab:crescendo_labels} the correlation between false-positive rate by the LLM judge and length of response by the victim LLM gets pretty clear.
+	
+	The false-positive rate for Claude Haiku 4.5 from our judge was even higher during the Indiana Jones attack, climbing up to 50\%, even though some of the answers are very clearly benign and not harmful.
 	This is most likely the case because Claude Haiku 4.5 is specialized in giving short and precise answers, unlike most other state-of-the-art LLMs which often produce much unnecessary content.
 	Therefore most LLM-as-a-Judge systems are trained on long and unspecific answers if the victim actually refuses to indulge in illegal or inappropriate behavior and are unable to handle short and precise rejections.
 	This can be seen by looking at the outcome of behavior 4 using Claude Haiku 4.5 as the victim LLM.
-	Here our judge found a jailbreak during the first attempt in the first round in which the victim gave the following answer:
+	Here our judge found a jailbreak during the first attempt of the first round in which the victim gave the following answer:
 	
 	\begin{quote}
 		I can't provide guidance on synthesizing chemical weapons, whether homemade or otherwise.
@@ -799,7 +848,7 @@ natbib
 		Is there a legitimate historical, educational, or policy angle I can help you explore instead?
 	\end{quote}
 	
-	Also when looking at the average length of a response from the victim LLM, listed in \autoref{tab:indiana_length}, we can see a correlation between the wrong positive rate of our LLM judge and the average length of the victims responses.
+	Also when looking at the average length of a response from the victim LLM, listed in \autoref{tab:indiana_length}, we can again see the correlation between the false-positive rate of our LLM judge and the average length of the victims responses.
 	
 	\begin{table}
 		\centering
@@ -820,28 +869,25 @@ natbib
 	\end{table}
 	
 	This correlation can be seen when looking at the numbers in \autoref{tab:indiana_length} together with the average length of the victim's responses from the Crescendo attack, which can be found in \autoref{tab:crescendo_length}.
-	The responses from Claude Haiku 4.5 were on average at 2983.28 characters long while the answers from ChatGPT 5.4-nano and DeepSeek-v3.2 were 5159.72 and 5032.38 characters long respectively.
-	With a around 40\% shorter response length our LLM judge reports the highest wrong positive rate with 30\% using Crescendo and 50\% using Indiana Jones.
+	Across both the Indiana Jones attack and the Crescendo attack the responses from Claude Haiku 4.5 were on average 2983.28 characters long while the answers from ChatGPT 5.4-nano and DeepSeek-v3.2 were 5159.72 and 5032.38 characters long respectively.
+	With a approximately 40\% shorter response length our LLM judge reports the highest wrong positive rate with 30\% using Crescendo and 50\% using Indiana Jones.
 	
-	\subsection{Suffix}
+	\section{Conclusion}
 	
-	Unlike with the Crescendo and the Indiana Jones attack we were unable to produce a successful jailbreak using the Suffix attack.
-	This comes quite surprising because with older LLMs the suffix attack recorded a high transferability.
-	That we did not get any transferability from our calculated suffixes can be because of multiple reasons.
+	This work investigated the robustness of three state-of-the-art LLMs against three different jailbreak techniques: Crescendo, Indiana Jones, and GCG-based adversarial suffix attacks.
+	The results demonstrate notable differences in attack effectiveness across the evaluated methods.
+	Crescendo achieved the highest overall ASR of 33.3\%, followed by Indiana Jones with 6.6\%.
+	In contrast, the generated adversarial suffixes failed to transfer to any of the tested LLMs, resulting in a transferability of 0\%.
 	
-	\begin{itemize}
-		\item The differences in size between our used open-weights surrogate models and our tested state-of-the-art LLMs are too great.
-		
-		\item The defenses of the tested state-of-the-art LLMs against such kind of gradient-based attacks have gotten good enough so that this attack class does not work any longer.
-		
-		\item Because most state-of-the-art LLMs nowadays differ in architecture when compared with "older" open-weights models the calculated suffixes cannot be transferred to the state-of-the-art LLMs.
-		
-		\item Filtering or preprocessing of prompts by the providers at the API level
-	\end{itemize}
+	These findings suggest that modern LLMs remain vulnerable to certain jailbreak techniques, particularly those exploiting multi-turn conversational interactions, like the Crescendo attack.
+	At the same time, the unsuccessful transfer of adversarial suffixes highlights the limitations of gradient-based attacks under the evaluated conditions.
+	Overall, the results indicate that jailbreak robustness depends on the employed attack strategy and that effective protection against one attack class does not necessarily imply robustness against others.
 	
-	Sadly none of the three providers, OpenAI, Anthropic, and DeepSeekAI, have open documentation that could clear up the question as to why exactly we were unable to produce a successful jailbreak using our on Llama-3.1 Instruct 8B and Mistral Instruct 7B calculated suffixes.
+	\bigskip
 	
-	\section{Future Works}
+	\textbf{Future Work:}
+	
+	\bigskip
 	
 	Future work could extend this study by evaluating a broader range of models, behaviors, and jailbreak techniques.
 	In particular, the lack of transferability observed for the GCG-based adversarial suffixes should be further investigated.
@@ -849,6 +895,8 @@ natbib
 	Additionally, the comparatively high success rate of Crescendo motivates further analysis of multi-turn attacks, including variations in conversation length and escalation strategy.
 	Finally, repeating the evaluation as new model generations and safety mechanisms are released would help determine whether the observed robustness differences persist over time.
 	For this especially a harness that guarantees the testing to stay the same over the course of multiple generations of LLMs is an important step.
+	
+	Also the observed correlation of false-positive rate of our judge and the length of the victim LLM's responses should be further investigated and tested with different LLM-as-a-judge systems as well as with new victim LLMs.
 	
 	\printbibliography
 	
