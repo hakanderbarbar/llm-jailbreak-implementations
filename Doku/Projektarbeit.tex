@@ -542,9 +542,11 @@ natbib
 	\end{itemize}
 	
 	With the calculated suffix from two different white-box models we are able to better generalize the effectiveness of the attack against state-of-the-art LLMs.
-	Our calculated suffixes had a mean loss of $1.048$ for Llama-3.1 Instruct 8B and $0.281$ for Mistral Instruct 7B.
+	Our calculated suffixes had a mean Cross Entropy loss of $1.048$ for Llama-3.1 Instruct 8B and $0.281$ for Mistral Instruct 7B.
+	We did not test the calculated suffixes on the surrogates directly since the focus of this attack is on the transferability onto our three state-of-the-art LLMs.
 	
-	These two models were not used in the original paper for the Suffix attack, which used Vicuna 7B and LLaMA-2 \cite{zou2023universaltransferableadversarialattacks}, we chose different models, because we are testing state-of-the-art LLMs we cannot rely on suffixes that were calculated on comparatively old models using old architecture.
+	These two models were not used in the original paper for the Suffix attack, which used Vicuna 7B and LLaMA-2 \cite{zou2023universaltransferableadversarialattacks}.
+	We chose different models, because we are testing state-of-the-art LLMs and therefore cannot rely on suffixes that were calculated on comparatively old models using old architecture.
 	To be able to make the best assumptions about the effectiveness of the attack we need to use more modern white-box LLMs to calculate our suffixes.
 	We chose "small" white-box LLMs for two reasons.
 	
@@ -674,9 +676,6 @@ natbib
 	This is because with DSA earlier turns aren't guaranteed to participate in later attention.
 	And the multi-turn and context dependent Crescendo attack relies on long and rather slowly escalating conversations which cause the victim LLMs to cross their safety boundary.
 	While testing the victims with the Crescendo multi-turn attack DeepSeek-v3.2 struggled the most with adversary behaviors containing biochemical content.
-	
-	TASK: Write a short paragraph about this promptfoo report in the related works chapter
-	
 	That is quite in line with the findings from the security report of DeepSeek-v3.2-Exp that was published by Promptfoo \cite{promptfoo2025deepseekv32}.
 	Here it is important to mention that according to DeepSeek-AI DeepSeek-v3.2-Exp "uses exactly the same architecture" as DeepSeek-v3.2 \cite{deepseekai2025deepseekv32pushingfrontieropen}.
 	This is actually still quite concerning, because with information like these, people with bad intent are able to cause a lot of harm.
@@ -807,29 +806,30 @@ natbib
 	
 	As briefly mentioned before we were able to observe an anti-proportional correlation between the false-positive rate of our LLM-as-a-Judge system and the length of the received response from the victim LLM, meaning the shorter the answer from the victim LLM the higher the false-positive rate from our LLM judge.
 	
-	\begin{table}
+	\begin{table*}
 		\centering
-		\begin{tabularx}{\linewidth}{X X}
+		\begin{tabularx}{\linewidth}{l X X}
 			\hline
 			\textbf{Model} &
-			\textbf{Average length of response} \\
+			\textbf{Average length of response, using Crescendo} &
+			\textbf{Average length of response, using Indiana Jones}\\
 			\hline
 			
-			ChatGPT 5.4-nano & 3227.12 \\
-			Claude Haiku 4.5 & 1405.40 \\
-			DeepSeek-v3.2 & 4174.83 \\
+			ChatGPT 5.4-nano & 3227.12 & 7092.31 \\
+			Claude Haiku 4.5 & 1405.40 & 4561.15 \\
+			DeepSeek-v3.2 & 4174.83 & 5889.92 \\
 			
 			\hline
 		\end{tabularx}
-		\caption{Average length of response of victim LLM using Crescendo, in characters}
-		\label{tab:crescendo_length}
-	\end{table}
+		\caption{Average length of response of victim LLM using Crescendo and Indiana Jones, in characters}
+		\label{tab:responses_length}
+	\end{table*}
 	
-	In \autoref{tab:crescendo_length} the average length of the responses from the victim LLMs, tested with the Crescendo attack, are listed.
-	With these numbers and the judgements listed in \autoref{tab:crescendo_labels} the correlation between false-positive rate by the LLM judge and length of response by the victim LLM gets pretty clear.
+	In \autoref{tab:responses_length} the average length of the responses from the victim LLMs, tested with both the Crescendo attack and the Indiana Jones attack, are listed.
+	With these numbers and the judgements listed in \autoref{tab:crescendo_labels} and \autoref{tab:indiana_labels} the correlation between false-positive rate by the LLM judge and length of response by the victim LLM gets pretty clear.
 	
-	The false-positive rate for Claude Haiku 4.5 from our judge was even higher during the Indiana Jones attack, climbing up to 50\%, even though some of the answers are very clearly benign and not harmful.
-	This is most likely the case because Claude Haiku 4.5 is specialized in giving short and precise answers, unlike most other state-of-the-art LLMs which often produce much unnecessary content.
+	The false-positive rate for Claude Haiku 4.5 from our judge was interestingly higher during the Indiana Jones attack, climbing up to 50\%, even though some of the answers are very clearly benign and not harmful.
+	This is most likely the case because Claude Haiku 4.5 is specialized in giving short and precise answers, unlike most other state-of-the-art LLMs, which often produce much unnecessary content.
 	Therefore most LLM-as-a-Judge systems are trained on long and unspecific answers if the victim actually refuses to indulge in illegal or inappropriate behavior and are unable to handle short and precise rejections.
 	This can be seen by looking at the outcome of behavior 4 using Claude Haiku 4.5 as the victim LLM.
 	Here our judge found a jailbreak during the first attempt of the first round in which the victim gave the following answer:
@@ -848,29 +848,12 @@ natbib
 		Is there a legitimate historical, educational, or policy angle I can help you explore instead?
 	\end{quote}
 	
-	Also when looking at the average length of a response from the victim LLM, listed in \autoref{tab:indiana_length}, we can again see the correlation between the false-positive rate of our LLM judge and the average length of the victims responses.
+	Also when looking at the average length of a response from the victim LLM using the Indiana Jones attack, listed in \autoref{tab:responses_length}, we can again see the correlation between the false-positive rate of our LLM judge and the average length of the victims responses.
 	
-	\begin{table}
-		\centering
-		\begin{tabularx}{\linewidth}{X X}
-			\hline
-			\textbf{Model} &
-			\textbf{Average length of response} \\
-			\hline
-			
-			ChatGPT 5.4-nano & 7092.31 \\
-			Claude Haiku 4.5 & 4561.15 \\
-			DeepSeek-v3.2 & 5889.92 \\
-			
-			\hline
-		\end{tabularx}
-		\caption{Average length of response of victim LLM using Indiana Jones, in characters}
-		\label{tab:indiana_length}
-	\end{table}
+	\bigskip
 	
-	This correlation can be seen when looking at the numbers in \autoref{tab:indiana_length} together with the average length of the victim's responses from the Crescendo attack, which can be found in \autoref{tab:crescendo_length}.
-	Across both the Indiana Jones attack and the Crescendo attack the responses from Claude Haiku 4.5 were on average 2983.28 characters long while the answers from ChatGPT 5.4-nano and DeepSeek-v3.2 were 5159.72 and 5032.38 characters long respectively.
-	With a approximately 40\% shorter response length our LLM judge reports the highest wrong positive rate with 30\% using Crescendo and 50\% using Indiana Jones.
+	Across both the Indiana Jones attack and the Crescendo attack, the responses from Claude Haiku 4.5 were on average $2983.28$ characters long while the answers from ChatGPT 5.4-nano and DeepSeek-v3.2 were $5159.72$ and $5032.38$ characters long respectively.
+	With an approximately 40\% shorter response length our LLM judge reports the highest false-positive rate for Claude Haiku 4.5 with 30\% using Crescendo and 50\% using Indiana Jones.
 	
 	\section{Conclusion}
 	

@@ -417,12 +417,6 @@
       \field{title}{Constitutional AI: Harmlessness from AI Feedback}
       \field{volume}{abs/2212.08073}
       \field{year}{2022}
-      \verb{urlraw}
-      \verb https://api.semanticscholar.org/CorpusID:254823489
-      \endverb
-      \verb{url}
-      \verb https://api.semanticscholar.org/CorpusID:254823489
-      \endverb
     \endentry
     \entry{zou2023universaltransferableadversarialattacks}{misc}{}
       \name{author}{6}{}{%
@@ -602,12 +596,6 @@
       \verb{doi}
       \verb 10.18653/v1/2025.emnlp-main.279
       \endverb
-      \verb{urlraw}
-      \verb https://aclanthology.org/2025.emnlp-main.279/
-      \endverb
-      \verb{url}
-      \verb https://aclanthology.org/2025.emnlp-main.279/
-      \endverb
     \endentry
     \entry{xu2024promptattack}{inproceedings}{}
       \name{author}{7}{}{%
@@ -660,12 +648,6 @@
       \field{booktitle}{The Twelfth International Conference on Learning Representations}
       \field{title}{An {LLM} can Fool Itself: A Prompt-Based Adversarial Attack}
       \field{year}{2024}
-      \verb{urlraw}
-      \verb https://openreview.net/forum?id=VVgGbB9TNV
-      \endverb
-      \verb{url}
-      \verb https://openreview.net/forum?id=VVgGbB9TNV
-      \endverb
     \endentry
     \entry{jiang2024artprompt}{inproceedings}{}
       \name{author}{7}{}{%
@@ -750,12 +732,6 @@
       \range{pages}{17}
       \verb{doi}
       \verb 10.18653/v1/2024.acl-long.809
-      \endverb
-      \verb{urlraw}
-      \verb https://aclanthology.org/2024.acl-long.809/
-      \endverb
-      \verb{url}
-      \verb https://aclanthology.org/2024.acl-long.809/
       \endverb
     \endentry
     \entry{chu-etal-2025-jailbreakradar}{inproceedings}{}
@@ -842,12 +818,6 @@
       \range{pages}{29}
       \verb{doi}
       \verb 10.18653/v1/2025.acl-long.1045
-      \endverb
-      \verb{urlraw}
-      \verb https://aclanthology.org/2025.acl-long.1045/
-      \endverb
-      \verb{url}
-      \verb https://aclanthology.org/2025.acl-long.1045/
       \endverb
     \endentry
     \entry{xu2024bagtricksbenchmarkingjailbreak}{inproceedings}{}
@@ -1057,6 +1027,62 @@
       \field{series}{ICML'24}
       \field{title}{HarmBench: a standardized evaluation framework for automated red teaming and robust refusal}
       \field{year}{2024}
+    \endentry
+    \entry{claudehaiku45systemcard}{report}{}
+      \name{author}{1}{}{%
+        {{hash=f431db65cea024a5f19eab835afefee2}{%
+           family={{Anthropic}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{f431db65cea024a5f19eab835afefee2}
+      \strng{fullhash}{f431db65cea024a5f19eab835afefee2}
+      \strng{bibnamehash}{f431db65cea024a5f19eab835afefee2}
+      \strng{authorbibnamehash}{f431db65cea024a5f19eab835afefee2}
+      \strng{authornamehash}{f431db65cea024a5f19eab835afefee2}
+      \strng{authorfullhash}{f431db65cea024a5f19eab835afefee2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{System Card: Claude Haiku 4.5}
+      \field{type}{techreport}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www-cdn.anthropic.com/7aad69bf12627d42234e01ee7c36305dc2f6a970/Claude%20Haiku%204.5%20System%20Card.pdf
+      \endverb
+      \verb{url}
+      \verb https://www-cdn.anthropic.com/7aad69bf12627d42234e01ee7c36305dc2f6a970/Claude%20Haiku%204.5%20System%20Card.pdf
+      \endverb
+    \endentry
+    \entry{promptfoo2025deepseekv32}{report}{}
+      \name{author}{1}{}{%
+        {{hash=6e8df9cc56c98960e81b27d608533ef4}{%
+           family={{Promptfoo}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Promptfoo}%
+      }
+      \strng{namehash}{6e8df9cc56c98960e81b27d608533ef4}
+      \strng{fullhash}{6e8df9cc56c98960e81b27d608533ef4}
+      \strng{bibnamehash}{6e8df9cc56c98960e81b27d608533ef4}
+      \strng{authorbibnamehash}{6e8df9cc56c98960e81b27d608533ef4}
+      \strng{authornamehash}{6e8df9cc56c98960e81b27d608533ef4}
+      \strng{authorfullhash}{6e8df9cc56c98960e81b27d608533ef4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{9}
+      \field{title}{DeepSeek V3.2-Exp Security Report}
+      \field{type}{Technical Report}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://promptfoo.dev/models/reports/deepseek-v3-2-exp
+      \endverb
+      \verb{url}
+      \verb https://promptfoo.dev/models/reports/deepseek-v3-2-exp
+      \endverb
     \endentry
     \entry{ding2025indianajonesusefulrelics}{misc}{}
       \name{author}{6}{}{%
@@ -4952,62 +4978,6 @@
       \field{year}{2025}
       \verb{eprint}
       \verb 2512.02556
-      \endverb
-    \endentry
-    \entry{promptfoo2025deepseekv32}{report}{}
-      \name{author}{1}{}{%
-        {{hash=6e8df9cc56c98960e81b27d608533ef4}{%
-           family={{Promptfoo}},
-           familyi={P\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {Promptfoo}%
-      }
-      \strng{namehash}{6e8df9cc56c98960e81b27d608533ef4}
-      \strng{fullhash}{6e8df9cc56c98960e81b27d608533ef4}
-      \strng{bibnamehash}{6e8df9cc56c98960e81b27d608533ef4}
-      \strng{authorbibnamehash}{6e8df9cc56c98960e81b27d608533ef4}
-      \strng{authornamehash}{6e8df9cc56c98960e81b27d608533ef4}
-      \strng{authorfullhash}{6e8df9cc56c98960e81b27d608533ef4}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{month}{9}
-      \field{title}{DeepSeek V3.2-Exp Security Report}
-      \field{type}{Technical Report}
-      \field{year}{2025}
-      \verb{urlraw}
-      \verb https://promptfoo.dev/models/reports/deepseek-v3-2-exp
-      \endverb
-      \verb{url}
-      \verb https://promptfoo.dev/models/reports/deepseek-v3-2-exp
-      \endverb
-    \endentry
-    \entry{claudehaiku45systemcard}{report}{}
-      \name{author}{1}{}{%
-        {{hash=f431db65cea024a5f19eab835afefee2}{%
-           family={{Anthropic}},
-           familyi={A\bibinitperiod}}}%
-      }
-      \strng{namehash}{f431db65cea024a5f19eab835afefee2}
-      \strng{fullhash}{f431db65cea024a5f19eab835afefee2}
-      \strng{bibnamehash}{f431db65cea024a5f19eab835afefee2}
-      \strng{authorbibnamehash}{f431db65cea024a5f19eab835afefee2}
-      \strng{authornamehash}{f431db65cea024a5f19eab835afefee2}
-      \strng{authorfullhash}{f431db65cea024a5f19eab835afefee2}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{System Card: Claude Haiku 4.5}
-      \field{type}{techreport}
-      \field{year}{2025}
-      \verb{urlraw}
-      \verb https://www-cdn.anthropic.com/7aad69bf12627d42234e01ee7c36305dc2f6a970/Claude%20Haiku%204.5%20System%20Card.pdf
-      \endverb
-      \verb{url}
-      \verb https://www-cdn.anthropic.com/7aad69bf12627d42234e01ee7c36305dc2f6a970/Claude%20Haiku%204.5%20System%20Card.pdf
       \endverb
     \endentry
     \entry{openai2025preparedness}{report}{}

@@ -1,15 +1,15 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is 'Projektarbeit.blg'
-[70] biber:340> INFO - === Di Okt 13, 2026, 16:40:26
-[84] Biber.pm:419> INFO - Reading 'Projektarbeit.bcf'
-[137] Biber.pm:979> INFO - Found 18 citekeys in bib section 0
-[148] Biber.pm:4419> INFO - Processing section 0
-[156] Biber.pm:4610> INFO - Looking for bibtex file './bibliography.bib' for section 0
-[158] bibtex.pm:1713> INFO - LaTeX decoding ...
-[180] bibtex.pm:1519> INFO - Found BibTeX data source './bibliography.bib'
-[1266] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1266] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1266] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
-[1267] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
-[1298] bbl.pm:660> INFO - Writing 'Projektarbeit.bbl' with encoding 'UTF-8'
-[1412] bbl.pm:763> INFO - Output to Projektarbeit.bbl
+[145] biber:340> INFO - === Mi Okt 14, 2026, 11:19:46
+[170] Biber.pm:419> INFO - Reading 'Projektarbeit.bcf'
+[267] Biber.pm:979> INFO - Found 18 citekeys in bib section 0
+[285] Biber.pm:4419> INFO - Processing section 0
+[300] Biber.pm:4610> INFO - Looking for bibtex file './bibliography.bib' for section 0
+[305] bibtex.pm:1713> INFO - LaTeX decoding ...
+[342] bibtex.pm:1519> INFO - Found BibTeX data source './bibliography.bib'
+[2266] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[2266] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[2266] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[2266] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[2322] bbl.pm:660> INFO - Writing 'Projektarbeit.bbl' with encoding 'UTF-8'
+[2517] bbl.pm:763> INFO - Output to Projektarbeit.bbl
