@@ -169,7 +169,7 @@ def parse_args() -> argparse.Namespace:
                         help='Behavior indices: "all", "0-9", or "0,5,12"')
     parser.add_argument("--advbench", default=None,
                         help="Path to harmful_behaviors.csv (overrides config default)")
-    parser.add_argument("--output-dir", default="results/crescendo",
+    parser.add_argument("--output-dir", default="../results/crescendo",
                         help="Directory for saving results")
     parser.add_argument("--ollama-url", default="http://localhost:11434")
     parser.add_argument("--seed", type=int, default=42)
