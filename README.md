@@ -18,7 +18,7 @@ For further information on the attacks, please refer to the papers of the author
 
 ## Crescendo
 
-The Crescendo attack is implemented after the paper [Great, now write an article about that: the crescendo multi-turn LLM jailbreak attack](https://www.usenix.org/system/files/conference/usenixsecurity25/sec25cycle1-prepub-805-russinovich.pdf) by Mark Russinovich, Ahmed Salem and Ronen Eldan.
+The Crescendo attack is implemented after the paper [Great, now write an article about that: the crescendo multi-turn LLM jailbreak attack](https://www.usenix.org/system/files/conference/usenixsecurity25/sec25cycle1-prepub-805-russinovich.pdf) by Mark Russinovich, Ahmed Salem, and Ronen Eldan.
 
 ### Startup
 
@@ -29,7 +29,10 @@ Then to start a basic test run with a local model, you can run the command
 python -m crescendo.run --target llama3.1
 ```
 
-The specified target needs to be the name of your local LLM instance, in this case our local LLM is called **llama3.1**.
+The specified target needs to be the name of your local LLM instance unless you use the `black-box` parameter.
+In this case our local LLM is called **llama3.1**.
+If the `black-box` parameter is used, the specified name of the target needs to be the OpenRouter stud of the LLM, like `openai/gpt-5.4-nano`.
+
 Further parameters are explained in the following chapter.
 
 ### Parameters
@@ -60,12 +63,79 @@ python -m crescendo.run --help
 
 ## Indiana Jones
 
-### Startbefehl Beispiel
+The Indiana Jones attack is implemented after the paper [TombRaider: Entering the Vault of History to Jailbreak Large Language Models]() by .
+This is the evolution of the Indiana Jones attack.
 
-### Parameter
+### Startup
+
+To start the Indiana Jones attack, firstly switch into the `Code` directory of the repository.
+Then to start a basic test run with a local model, you can run the command
+
+```bash
+python -m indiana_jones.run --target llama3.1
+```
+
+The specified target needs to be the name of your local LLM instance unless you use the `black-box` parameter.
+In this case our local LLM is called **llama3.1**.
+If the `black-box` parameter is used, the specified name of the target needs to be the OpenRouter stud of the LLM, like `openai/gpt-5.4-nano`.
+
+Further parameters are explained in the following chapter.
+
+### Parameters
+
+| Parameter | Description | Example |
+| --- | --- | --- |
+| target | Specify the target that should be attacked | --target llama3.1 or --target openai/gpt-5.4-nano |
+| orchestrator | Specify the orchestrator of the attack | --orchestrator mistral:7b-instruct-q4_K_M |
+| judge | Specify the LLM judge of the attacks | --judge llama-guard3 |
+| max-attempts | Maximum number of historical contexts to try per behavior | --max-attempts 5 |
+| max-turns | Set the maximum number of turns per attempt | --max-turns 10 |
+| temperature | Target model sampling temperature | --temperature 0.7 |
+| behaviors | Behavior indices: "all", "0-9", or "0,5,12" | --behaviors 2-5 |
+| advbench | Path to harmful_behaviors.csv | --advbench ../behaviors/test.csv |
+| output-dir | Directory for saving results | --output-dir ../results/crescendo |
+| ollama-url | Local ollama address | --ollama-url http://localhost:12345 |
+| seed | Default seed for reproducable experiments | --seed 42 |
+| verbose; v | Enable DEBUG logging | --verbose or -v |
+| dry-run | Print first prompt of each behavior without querying models | --dry-run |
+| black-box; b | Specify if the target model is a black-box model | --black-box or -b |
+
+If the target model is a non local model and runs in the cloud via OpenRouter, the `black-box` parameter is **necesarry**!
+
+Some parameters have default values, to see them run 
+
+```bash
+python -m indiana_jones.run --help
+```
 
 ## Suffix
 
-### Startbefehl Beispiel
+The Suffix attack is implemented after the paper [Universal and Transferable Adversarial Attacks on Aligned Language Models](https://arxiv.org/abs/2307.15043) by Andy Zou, Zifan Wang, Nicholas Carlini, Milad Nasr, J. Zico Kolter, and Matt Fredrikson.
 
-### Parameter
+### Startup
+
+To start the Suffix attack, firstly switch into the `Code` directory of the repository.
+Then to start a basic test run with a local model, you can run the command
+
+```bash
+python -m suffix.run --target anthropic/claude-haiku-4.5
+```
+
+Important for the Suffix attack is that the actual suffixes need to be calculated **beforehand** since this takes a lot of compute power and time.
+Then the calculated suffixes need to be placed in the file `Code/suffix_results.json`.
+
+Another important note is that the suffix attack, as it stands at the moment, can only attack black-box models via OpenRouter.
+
+### Parameters
+
+| Parameter | Description | Example |
+| --- | --- | --- |
+| source | White-box source model to use | --source llama |
+| target | OpenRouter model slug | --target anthropic/claude-haiku-4.5 |
+| verbose; v | Response-Preview in the logs | --verbose or -v |
+
+Some parameters have default values, to see them run
+
+```bash
+python -m suffix.run --help
+```
