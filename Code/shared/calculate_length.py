@@ -44,15 +44,19 @@ for file_path in folder.glob("*.json"):
         f"{file_length} total characters"
     )
 
+def main():
 
-# Calculate overall average
-if total_response_count > 0:
-    average_length = total_response_length / total_response_count
-else:
-    average_length = 0
+    # Calculate overall average
+    if total_response_count > 0:
+        average_length = total_response_length / total_response_count
+    else:
+        average_length = 0
 
 
-print("\n--- Overall results ---")
-print(f"Total responses: {total_response_count}")
-print(f"Total response length: {total_response_length} characters")
-print(f"Average response length: {average_length:.2f} characters")
+    print("\n--- Overall results ---")
+    print(f"Total responses: {total_response_count}")
+    print(f"Total response length: {total_response_length} characters")
+    print(f"Average response length: {average_length:.2f} characters")
+
+if __name__ == "__main__":
+    main()

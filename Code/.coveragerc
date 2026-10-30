@@ -1,0 +1,15 @@
+[run]
+branch = True
+source =
+    crescendo
+    indiana_jones
+    shared
+    suffix
+
+[report]
+show_missing = True
+skip_empty = True
+precision = 2
+
+[html]
+directory = htmlcov

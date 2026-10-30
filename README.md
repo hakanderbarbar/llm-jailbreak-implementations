@@ -61,6 +61,11 @@ Most parameters have default values, to see them run
 python -m crescendo.run --help
 ```
 
+### Further configuration
+
+The Crescendo attack can be further configurated by adjusting the used system prompts.
+Our system prompts can be found in the file `Code/crescendo/prompts.json`.
+
 ## Indiana Jones
 
 The Indiana Jones attack is implemented after the paper [TombRaider: Entering the Vault of History to Jailbreak Large Language Models]() by .
@@ -108,6 +113,11 @@ Some parameters have default values, to see them run
 python -m indiana_jones.run --help
 ```
 
+### Further configuration
+
+The Indiana Jones attack can be further configurated by adjusting the used system prompts.
+All of our system prompts can be found in the file `Code/indiana_jones/prompts.json`.
+
 ## Suffix
 
 The Suffix attack is implemented after the paper [Universal and Transferable Adversarial Attacks on Aligned Language Models](https://arxiv.org/abs/2307.15043) by Andy Zou, Zifan Wang, Nicholas Carlini, Milad Nasr, J. Zico Kolter, and Matt Fredrikson.
@@ -139,3 +149,26 @@ Some parameters have default values, to see them run
 ```bash
 python -m suffix.run --help
 ```
+
+## Testing
+
+For testing we use the package `coverage`.
+A configuration can be found in the Code directory in this file: `Code/coveragerc`.
+
+To run all tests you must first enter the `Code` directory and then enter this command:
+
+```bash
+python -m coverage run -m unittest discover -s tests -v
+```
+
+To then generate a report you can use the following two commands:
+
+```bash
+python -m coverage report -m
+
+python -m coverage html
+```
+
+The first one will generate a report in the terminal and the second one will generate a HTML report that can be found in the file `Code/htmlcov/index.html`.
+
+The tests consist of unittests, smoke tests, integration tests, and some mocked workflows.
