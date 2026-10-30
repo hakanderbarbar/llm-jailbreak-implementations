@@ -30,7 +30,7 @@ from shared.router import OpenRouterClient
 logger = logging.getLogger(__name__)
 
 SUFFIX_FILE = Path(__file__).parent.parent / "suffix_results.json"
-OUTPUT_DIR  = Path("results/suffix")
+OUTPUT_DIR  = Path("../results/suffix")
 
 DEFAULT_MODELS = [
     "anthropic/claude-haiku-4.5",
@@ -153,12 +153,12 @@ def main():
         dest="targets",
         default=None,
         metavar="MODEL",
-        help="OpenRouter model slug (repeatable; default: alle drei Black-Box-Modelle)",
+        help="OpenRouter model slug (repeatable; default: all three black-box models)",
     )
     parser.add_argument(
         "--verbose", "-v",
         action="store_true",
-        help="Response-Preview in den Logs",
+        help="Response-Preview in the logs",
     )
     args = parser.parse_args()
 

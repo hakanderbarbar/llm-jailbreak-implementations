@@ -168,7 +168,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--temperature", type=float, default=0.7)
     parser.add_argument("--behaviors", default="0-2")
     parser.add_argument("--advbench", default=None)
-    parser.add_argument("--output-dir", default="results/indiana_jones")
+    parser.add_argument("--output-dir", default="../results/indiana_jones")
     parser.add_argument("--ollama-url", default="http://localhost:11434")
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--verbose", "-v", action="store_true")
