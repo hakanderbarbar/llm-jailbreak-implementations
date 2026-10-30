@@ -21,5 +21,7 @@ class IndianaJonesConfig:
     output_dir: str = "results/indiana_jones"
     use_black_box: bool = False
 
+    prompt_file: str | None = None  # Optional JSON template override
+
     def output_path(self) -> Path:
         return Path(self.output_dir)

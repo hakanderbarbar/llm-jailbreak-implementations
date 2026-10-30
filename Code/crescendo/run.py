@@ -26,6 +26,7 @@ from pathlib import Path
 
 from .attack import CrescendoAttack
 from .config import CrescendoConfig
+from shared.run_utils import setup_logging, load_behaviors, parse_behavior_selection, save_result
 from shared.ollama_client import OllamaClient
 from shared.router import OpenRouterClient
 
@@ -34,65 +35,65 @@ from shared.router import OpenRouterClient
 # Logging setup
 # ---------------------------------------------------------------------------
 
-def setup_logging(log_dir: Path, verbose: bool = False) -> None:
-    log_dir.mkdir(parents=True, exist_ok=True)
-    level = logging.DEBUG if verbose else logging.INFO
-    handlers = [
-        logging.StreamHandler(sys.stdout),
-        logging.FileHandler(log_dir / "run.log", encoding="utf-8"),
-    ]
-    logging.basicConfig(
-        level=level,
-        format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
-        datefmt="%H:%M:%S",
-        handlers=handlers,
-    )
+# def setup_logging(log_dir: Path, verbose: bool = False) -> None:
+#     log_dir.mkdir(parents=True, exist_ok=True)
+#     level = logging.DEBUG if verbose else logging.INFO
+#     handlers = [
+#         logging.StreamHandler(sys.stdout),
+#         logging.FileHandler(log_dir / "run.log", encoding="utf-8"),
+#     ]
+#     logging.basicConfig(
+#         level=level,
+#         format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+#         datefmt="%H:%M:%S",
+#         handlers=handlers,
+#     )
 
 
 # ---------------------------------------------------------------------------
 # Data loading
 # ---------------------------------------------------------------------------
 
-def load_behaviors(csv_path: str) -> list[dict]:
-    """Load AdvBench harmful_behaviors.csv → list of {idx, goal, target}."""
-    path = Path(csv_path)
-    if not path.exists():
-        raise FileNotFoundError(
-            f"AdvBench CSV not found at: {path.resolve()}\n"
-            "Make sure the llm-attacks submodule is initialised:\n"
-            "  git submodule update --init --recursive"
-        )
-    behaviors = []
-    with open(path, newline="", encoding="utf-8") as f:
-        reader = csv.DictReader(f)
-        for idx, row in enumerate(reader):
-            behaviors.append({"idx": idx, "goal": row["goal"], "target": row["target"]})
-    return behaviors
+# def load_behaviors(csv_path: str) -> list[dict]:
+#     """Load AdvBench harmful_behaviors.csv → list of {idx, goal, target}."""
+#     path = Path(csv_path)
+#     if not path.exists():
+#         raise FileNotFoundError(
+#             f"AdvBench CSV not found at: {path.resolve()}\n"
+#             "Make sure the llm-attacks submodule is initialised:\n"
+#             "  git submodule update --init --recursive"
+#         )
+#     behaviors = []
+#     with open(path, newline="", encoding="utf-8") as f:
+#         reader = csv.DictReader(f)
+#         for idx, row in enumerate(reader):
+#             behaviors.append({"idx": idx, "goal": row["goal"], "target": row["target"]})
+#     return behaviors
 
 
-def parse_behavior_selection(spec: str, total: int) -> list[int]:
-    """
-    Parse a behavior selection spec into a list of indices.
-      "all"       → [0, 1, ..., total-1]
-      "0-9"       → [0, 1, ..., 9]
-      "0,5,12"    → [0, 5, 12]
-    """
-    if spec == "all":
-        return list(range(total))
-    if "-" in spec and "," not in spec:
-        start, end = spec.split("-")
-        return list(range(int(start), int(end) + 1))
-    return [int(x) for x in spec.split(",")]
+# def parse_behavior_selection(spec: str, total: int) -> list[int]:
+#     """
+#     Parse a behavior selection spec into a list of indices.
+#       "all"       → [0, 1, ..., total-1]
+#       "0-9"       → [0, 1, ..., 9]
+#       "0,5,12"    → [0, 5, 12]
+#     """
+#     if spec == "all":
+#         return list(range(total))
+#     if "-" in spec and "," not in spec:
+#         start, end = spec.split("-")
+#         return list(range(int(start), int(end) + 1))
+#     return [int(x) for x in spec.split(",")]
 
 
 # ---------------------------------------------------------------------------
 # Result saving
 # ---------------------------------------------------------------------------
 
-def save_result(result, run_dir: Path) -> None:
-    """Save one AttackResult as a JSON file."""
-    fname = run_dir / f"behavior_{result.behavior_idx:03d}.json"
-    fname.write_text(result.to_json(), encoding="utf-8")
+# def save_result(result, run_dir: Path) -> None:
+#     """Save one AttackResult as a JSON file."""
+#     fname = run_dir / f"behavior_{result.behavior_idx:03d}.json"
+#     fname.write_text(result.to_json(), encoding="utf-8")
 
 
 def save_summary(results: list, run_dir: Path, config: CrescendoConfig) -> None:

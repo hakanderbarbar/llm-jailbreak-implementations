@@ -29,5 +29,7 @@ class CrescendoConfig:
     advbench_path: str = "../submodules/llm-attacks/data/advbench/harmful_behaviors.csv"
     output_dir: str = "results/crescendo"
 
+    prompt_file: str | None = None  # Optional JSON template override
+
     def output_path(self) -> Path:
         return Path(self.output_dir)
