@@ -16,6 +16,9 @@ pip install -r requirements.txt
 In this project three different attacks are implemented.
 For further information on the attacks, please refer to the papers of the authors, which are linked in the chapters of the representative attacks.
 
+If the attacks were to be run with cloud models from OpenRouter, an environment file (.env) inside the `Code` directory with the OpenRouter API key is needed.
+The key must be in a variable called `OPENROUTER_API_KEY`!
+
 ## Crescendo
 
 The Crescendo attack is implemented after the paper [Great, now write an article about that: the crescendo multi-turn LLM jailbreak attack](https://www.usenix.org/system/files/conference/usenixsecurity25/sec25cycle1-prepub-805-russinovich.pdf) by Mark Russinovich, Ahmed Salem, and Ronen Eldan.
