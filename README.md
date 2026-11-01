@@ -21,7 +21,7 @@ The key must be in a variable called `OPENROUTER_API_KEY`!
 
 ## Crescendo
 
-The Crescendo attack is implemented after the paper [Great, now write an article about that: the crescendo multi-turn LLM jailbreak attack](https://www.usenix.org/system/files/conference/usenixsecurity25/sec25cycle1-prepub-805-russinovich.pdf) by Mark Russinovich, Ahmed Salem, and Ronen Eldan.
+The Crescendo attack is implemented after the paper ["Great, now write an article about that: the crescendo multi-turn LLM jailbreak attack"](https://www.usenix.org/system/files/conference/usenixsecurity25/sec25cycle1-prepub-805-russinovich.pdf) by Mark Russinovich, Ahmed Salem, and Ronen Eldan.
 
 ### Startup
 
@@ -71,7 +71,7 @@ Our system prompts can be found in the file `Code/crescendo/prompts.json`.
 
 ## Indiana Jones
 
-The Indiana Jones attack is implemented after the paper [TombRaider: Entering the Vault of History to Jailbreak Large Language Models]() by .
+The Indiana Jones attack is implemented after the paper ["TombRaider: Entering the Vault of History to Jailbreak Large Language Models"](https://aclanthology.org/2025.emnlp-main.279/) by Junchen Ding, Jiahao Zhang, Yi Liu, Ziqi Ding, Gelei Deng, and Yuekang Li.
 This is the evolution of the Indiana Jones attack.
 
 ### Startup
@@ -123,7 +123,7 @@ All of our system prompts can be found in the file `Code/indiana_jones/prompts.j
 
 ## Suffix
 
-The Suffix attack is implemented after the paper [Universal and Transferable Adversarial Attacks on Aligned Language Models](https://arxiv.org/abs/2307.15043) by Andy Zou, Zifan Wang, Nicholas Carlini, Milad Nasr, J. Zico Kolter, and Matt Fredrikson.
+The Suffix attack is implemented after the paper ["Universal and Transferable Adversarial Attacks on Aligned Language Models"](https://www.researchgate.net/publication/372684204_Universal_and_Transferable_Adversarial_Attacks_on_Aligned_Language_Models) by Andy Zou, Zifan Wang, Nicholas Carlini, Milad Nasr, J. Zico Kolter, and Matt Fredrikson.
 
 ### Startup
 
