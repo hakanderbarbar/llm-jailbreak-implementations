@@ -16,7 +16,7 @@ pip install -r requirements.txt
 In this project three different attacks are implemented.
 For further information on the attacks, please refer to the papers of the authors, which are linked in the chapters of the representative attacks.
 
-If the attacks were to be run with cloud models from OpenRouter, an environment file (.env) inside the `Code` directory with the OpenRouter API key is needed.
+If the attacks were to be run with cloud models from [OpenRouter](https://openrouter.ai/), an environment file (.env) inside the `Code` directory with the OpenRouter API key is needed.
 The key must be in a variable called `OPENROUTER_API_KEY`!
 
 ## Crescendo
@@ -72,7 +72,6 @@ Our system prompts can be found in the file `Code/crescendo/prompts.json`.
 ## Indiana Jones
 
 The Indiana Jones attack is implemented after the paper ["TombRaider: Entering the Vault of History to Jailbreak Large Language Models"](https://aclanthology.org/2025.emnlp-main.279/) by Junchen Ding, Jiahao Zhang, Yi Liu, Ziqi Ding, Gelei Deng, and Yuekang Li.
-This is the evolution of the Indiana Jones attack.
 
 ### Startup
 
