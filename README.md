@@ -2,6 +2,10 @@
 
 This is the repository for "Comparative Evaluation of the Robustness of State-of-the-Art LLMs against Gradient-Based, Multi-Turn, and Narrative Jailbreak Attacks" by Hakan Kaya, Dominik Réti and Dr. Stephan Kleber.
 
+## Caution
+
+This project is intended only for authorized model-safety evaluation, academic reproduction, and defensive research. Do not run it against third-party systems without permission. Outputs may contain harmful content; use an isolated environment and restrict access to generated results.
+
 ## Installation
 
 All necessary packages are listed in `requirements.txt`.
